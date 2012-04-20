@@ -1,0 +1,12 @@
+
+
+
+@float Table,gnutls_x509_crt_fmt_t
+
+@itemize
+@item GNUTLS_@-X509_@-FMT_@-DER
+X.509 certificate in DER format (binary).
+@item GNUTLS_@-X509_@-FMT_@-PEM
+X.509 certificate in PEM format (text).
+@end itemize
+@end float

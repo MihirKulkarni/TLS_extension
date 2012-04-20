@@ -1,0 +1,16 @@
+
+
+
+@float Table,gnutls_privkey_type_t
+
+@itemize
+@item GNUTLS_@-PRIVKEY_@-X509
+X.509 private key, @code{gnutls_x509_privkey_t}.
+@item GNUTLS_@-PRIVKEY_@-OPENPGP
+OpenPGP private key, @code{gnutls_openpgp_privkey_t}.
+@item GNUTLS_@-PRIVKEY_@-PKCS11
+PKCS11 private key, @code{gnutls_pkcs11_privkey_t}.
+@item GNUTLS_@-PRIVKEY_@-EXT
+External private key, operating using callbacks.
+@end itemize
+@end float

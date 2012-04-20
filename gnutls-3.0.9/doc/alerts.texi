@@ -1,0 +1,88 @@
+Available alert messages:
+@multitable @columnfractions .55 .10 .30
+@anchor{tab:alerts}
+@item GNUTLS_A_CLOSE_NOTIFY
+@tab 0
+@tab Close notify
+@item GNUTLS_A_UNEXPECTED_MESSAGE
+@tab 10
+@tab Unexpected message
+@item GNUTLS_A_BAD_RECORD_MAC
+@tab 20
+@tab Bad record MAC
+@item GNUTLS_A_DECRYPTION_FAILED
+@tab 21
+@tab Decryption failed
+@item GNUTLS_A_RECORD_OVERFLOW
+@tab 22
+@tab Record overflow
+@item GNUTLS_A_DECOMPRESSION_FAILURE
+@tab 30
+@tab Decompression failed
+@item GNUTLS_A_HANDSHAKE_FAILURE
+@tab 40
+@tab Handshake failed
+@item GNUTLS_A_SSL3_NO_CERTIFICATE
+@tab 41
+@tab No certificate (SSL 3.0)
+@item GNUTLS_A_BAD_CERTIFICATE
+@tab 42
+@tab Certificate is bad
+@item GNUTLS_A_UNSUPPORTED_CERTIFICATE
+@tab 43
+@tab Certificate is not supported
+@item GNUTLS_A_CERTIFICATE_REVOKED
+@tab 44
+@tab Certificate was revoked
+@item GNUTLS_A_CERTIFICATE_EXPIRED
+@tab 45
+@tab Certificate is expired
+@item GNUTLS_A_CERTIFICATE_UNKNOWN
+@tab 46
+@tab Unknown certificate
+@item GNUTLS_A_ILLEGAL_PARAMETER
+@tab 47
+@tab Illegal parameter
+@item GNUTLS_A_UNKNOWN_CA
+@tab 48
+@tab CA is unknown
+@item GNUTLS_A_ACCESS_DENIED
+@tab 49
+@tab Access was denied
+@item GNUTLS_A_DECODE_ERROR
+@tab 50
+@tab Decode error
+@item GNUTLS_A_DECRYPT_ERROR
+@tab 51
+@tab Decrypt error
+@item GNUTLS_A_EXPORT_RESTRICTION
+@tab 60
+@tab Export restriction
+@item GNUTLS_A_PROTOCOL_VERSION
+@tab 70
+@tab Error in protocol version
+@item GNUTLS_A_INSUFFICIENT_SECURITY
+@tab 71
+@tab Insufficient security
+@item GNUTLS_A_INTERNAL_ERROR
+@tab 80
+@tab Internal error
+@item GNUTLS_A_USER_CANCELED
+@tab 90
+@tab User canceled
+@item GNUTLS_A_NO_RENEGOTIATION
+@tab 100
+@tab No renegotiation is allowed
+@item GNUTLS_A_UNSUPPORTED_EXTENSION
+@tab 110
+@tab An unsupported extension was sent
+@item GNUTLS_A_CERTIFICATE_UNOBTAINABLE
+@tab 111
+@tab Could not retrieve the specified certificate
+@item GNUTLS_A_UNRECOGNIZED_NAME
+@tab 112
+@tab The server name sent was not recognized
+@item GNUTLS_A_UNKNOWN_PSK_IDENTITY
+@tab 115
+@tab The SRP/PSK username is missing or not known
+@end multitable

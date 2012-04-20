@@ -1,0 +1,397 @@
+@node Certificate authentication
+@chapter Certificate authentication
+@cindex certificate authentication
+
+@menu
+* Introduction::
+* X.509 certificates::
+* OpenPGP certificates::
+* Digital signatures::
+@end menu
+
+@node Introduction
+@section Introduction
+
+The most known authentication method of @acronym{TLS} are certificates.
+The PKIX @xcite{PKIX} public key infrastructure is daily used by anyone
+using a browser today. @acronym{GnuTLS} supports both 
+@acronym{X.509} certificates @xcite{PKIX} and @acronym{OpenPGP}
+certificates using a common API.
+
+@node X.509 certificates
+@section @acronym{X.509} certificates
+@cindex X.509 certificates
+
+The @acronym{X.509} protocols rely on a hierarchical trust model. In
+this trust model Certification Authorities (CAs) are used to certify
+entities.  Usually more than one certification authorities exist, and
+certification authorities may certify other authorities to issue
+certificates as well, following a hierarchical model.
+
+@float Figure,fig:x509
+@image{gnutls-x509,7cm}
+@caption{An example of the X.509 hierarchical trust model.}
+@end float
+
+One needs to trust one or more CAs for his secure communications. In
+that case only the certificates issued by the trusted authorities are
+acceptable.  The framework is illustrated on @ref{fig:x509}.
+
+@menu
+* X.509 certificate structure::
+* Verifying X.509 certificate paths::
+* Verifying a certificate in the context of TLS session::
+@end menu
+
+@node X.509 certificate structure
+@subsection @acronym{X.509} certificate structure
+
+An @acronym{X.509} certificate usually contains information about the
+certificate holder, the signer, a unique serial number, expiration
+dates and some other fields @xcite{PKIX} as shown in @ref{tab:x509}.
+
+@float Table,tab:x509
+@multitable @columnfractions .2 .7
+
+@headitem Field @tab Description
+
+@item version @tab
+The field that indicates the version of the certificate.
+
+@item serialNumber @tab
+This field holds a unique serial number per certificate.
+
+@item signature @tab
+The issuing authority's signature.
+
+@item issuer @tab
+Holds the issuer's distinguished name.
+
+@item validity @tab
+The activation and expiration dates.
+
+@item subject @tab
+The subject's distinguished name of the certificate.
+
+@item extensions @tab
+The extensions are fields only present in version 3 certificates.
+
+@end multitable
+@caption{X.509 certificate fields.}
+@end float
+
+The certificate's @emph{subject or issuer name} is not just a single
+string.  It is a Distinguished name and in the @acronym{ASN.1}
+notation is a sequence of several object identifiers with their corresponding
+values. Some of available OIDs to be used in an @acronym{X.509}
+distinguished name are defined in @file{gnutls/x509.h}.
+
+The @emph{Version} field in a certificate has values either 1 or 3 for
+version 3 certificates.  Version 1 certificates do not support the
+extensions field so it is not possible to distinguish a CA from a
+person, thus their usage should be avoided.
+
+The @emph{validity} dates are there to indicate the date that the
+specific certificate was activated and the date the certificate's key
+would be considered invalid.
+
+Certificate @emph{extensions} are there to include information about
+the certificate's subject that did not fit in the typical certificate
+fields. Those may be e-mail addresses, flags that indicate whether the
+belongs to a CA etc.  All the supported @acronym{X.509} version 3
+extensions are shown in @ref{tab:x509-ext}.
+
+@float Table,tab:x509-ext
+@multitable @columnfractions .3 .2 .4
+
+@headitem Extension @tab OID @tab Description
+
+@item Subject key id @tab 2.5.29.14 @tab
+An identifier of the key of the subject.
+
+@item Authority key id @tab 2.5.29.35 @tab
+An identifier of the authority's key used to sign the certificate.
+
+@item Subject alternative name @tab 2.5.29.17 @tab
+Alternative names to subject's distinguished name.
+
+@item Key usage @tab 2.5.29.15 @tab
+Constraints the key's usage of the certificate.
+
+@item Extended key usage @tab 2.5.29.37 @tab
+Constraints the purpose of the certificate.
+
+@item Basic constraints @tab 2.5.29.19 @tab
+Indicates whether this is a CA certificate or not, and specify the
+maximum path lengths of certificate chains.
+
+@item CRL distribution points @tab 2.5.29.31 @tab
+This extension is set by the CA, in order to inform about the issued
+CRLs.
+
+@item Proxy Certification Information @tab 1.3.6.1.5.5.7.1.14 @tab
+Proxy Certificates includes this extension that contains the OID of
+the proxy policy language used, and can specify limits on the maximum
+lengths of proxy chains.  Proxy Certificates are specified in
+@xcite{RFC3820}.
+
+@end multitable
+@caption{X.509 certificate extensions.}
+@end float
+
+In @acronym{GnuTLS} the @acronym{X.509} certificate structures are
+handled using the @code{gnutls_x509_crt_t} type and the corresponding
+private keys with the @code{gnutls_x509_privkey_t} type.  All the
+available functions for @acronym{X.509} certificate handling have
+their prototypes in @file{gnutls/x509.h}. An example program to
+demonstrate the @acronym{X.509} parsing capabilities can be found at
+@ref{ex:x509-info}.
+
+@node Verifying X.509 certificate paths
+@subsection Verifying @acronym{X.509} certificate paths
+@cindex verifying certificate paths
+
+Verifying certificate paths is important in @acronym{X.509}
+authentication. For this purpose the following functions are
+provided.
+
+@showfuncdesc{gnutls_x509_trust_list_add_cas}
+@showfuncdesc{gnutls_x509_trust_list_add_named_crt}
+@showfuncdesc{gnutls_x509_trust_list_add_crls}
+@showfuncdesc{gnutls_x509_trust_list_verify_crt}
+@showfuncdesc{gnutls_x509_trust_list_verify_named_crt}
+
+The verification function will verify a given certificate chain against a list of certificate
+authorities and certificate revocation lists, and output
+a bit-wise OR of elements of the @code{gnutls_@-certificate_@-status_t} 
+enumeration shown in @ref{gnutls_certificate_status_t}. 
+
+@showenumdesc{gnutls_certificate_status_t,The @code{gnutls_@-certificate_@-status_t} enumeration.}
+
+An example of certificate verification is shown in @ref{ex:verify2}.
+It is also possible to have a set of certificates that
+are trusted for a particular server but not to authorize other certificates.
+This purpose is served by the functions @funcref{gnutls_x509_trust_list_add_named_crt} and @funcref{gnutls_x509_trust_list_verify_named_crt}.
+
+@node Verifying a certificate in the context of TLS session
+@subsection Verifying a certificate in the context of TLS session
+@cindex verifying certificate paths
+@tindex gnutls_certificate_verify_flags
+
+When operating in the context of a TLS session, the trusted certificate
+authority list has been set via the
+@funcref{gnutls_certificate_set_x509_trust_file} and @funcref{gnutls_certificate_set_x509_crl_file},
+thus it is not required to setup a trusted list as above.
+Convenience functions such as @funcref{gnutls_certificate_verify_peers2} 
+are equivalent and will verify the peer's certificate chain
+in a TLS session. 
+
+There is also the possibility to pass some input to the verification
+functions in the form of flags. For @funcref{gnutls_x509_trust_list_verify_crt} the
+flags are passed straightforward, but
+@funcref{gnutls_certificate_verify_peers2} depends on the flags set by
+calling @funcref{gnutls_certificate_set_verify_flags}.  All the available
+flags are part of the enumeration
+@code{gnutls_@-certificate_@-verify_@-flags} shown in @ref{gnutls_certificate_verify_flags}.
+
+@showenumdesc{gnutls_certificate_verify_flags,The @code{gnutls_@-certificate_@-verify_@-flags} enumeration.}
+
+Although the verification of a certificate path indicates that the
+certificate is signed by trusted authority, does not reveal anything
+about the peer's identity. It is required to verify if the
+certificate's owner is the one you expect. For more information
+consult @xcite{RFC2818} and section @ref{ex:verify} for an example.
+
+
+
+@node OpenPGP certificates
+@section @acronym{OpenPGP} certificates
+@cindex OpenPGP certificates
+
+The @acronym{OpenPGP} key authentication relies on a distributed trust
+model, called the ``web of trust''. The ``web of trust'' uses a
+decentralized system of trusted introducers, which are the same as a
+CA. @acronym{OpenPGP} allows anyone to sign anyone else's public
+key. When Alice signs Bob's key, she is introducing Bob's key to
+anyone who trusts Alice. If someone trusts Alice to introduce keys,
+then Alice is a trusted introducer in the mind of that observer.
+For example in @ref{fig:openpgp}, David trusts Alice to be an introducer and Alice
+signed Bob's key thus Dave trusts Bob's key to be the real one.
+
+@float Figure,fig:openpgp
+@image{gnutls-pgp,8cm}
+@caption{An example of the OpenPGP trust model.}
+@end float
+
+There are some key points that are important in that model. In the
+example Alice has to sign Bob's key, only if she is sure that the key
+belongs to Bob. Otherwise she may also make Dave falsely believe that
+this is Bob's key. Dave has also the responsibility to know who to
+trust.  This model is similar to real life relations.
+
+Just see how Charlie behaves in the previous example. Although he has
+signed Bob's key - because he knows, somehow, that it belongs to Bob -
+he does not trust Bob to be an introducer. Charlie decided to trust
+only Kevin, for some reason. A reason could be that Bob is lazy
+enough, and signs other people's keys without being sure that they
+belong to the actual owner.
+
+@subsection @acronym{OpenPGP} certificate structure
+
+In @acronym{GnuTLS} the @acronym{OpenPGP} key structures
+@xcite{RFC2440} are handled using the @code{gnutls_openpgp_crt_t} type
+and the corresponding private keys with the
+@code{gnutls_openpgp_privkey_t} type. All the prototypes for the key
+handling functions can be found at @file{gnutls/openpgp.h}.
+
+@subsection Verifying an @acronym{OpenPGP} certificate
+
+The verification functions of @acronym{OpenPGP} keys, included in
+@acronym{GnuTLS}, are simple ones, and do not use the features of the
+``web of trust''.  For that reason, if the verification needs are
+complex, the assistance of external tools like @acronym{GnuPG} and
+GPGME@footnote{@url{http://www.gnupg.org/related_software/gpgme/}} is
+recommended.
+
+In GnuTLS there is a verification function for OpenPGP certificates,
+the @funcref{gnutls_openpgp_crt_verify_ring}.  This checks an
+@acronym{OpenPGP} key against a given set of public keys (keyring) and
+returns the key status. The key verification status is the same as in
+@acronym{X.509} certificates, although the meaning and interpretation
+are different. For example an @acronym{OpenPGP} key may be valid, if
+the self signature is ok, even if no signers were found.  The meaning
+of verification status flags is the same as in the @acronym{X.509} certificates
+(see @ref{gnutls_certificate_verify_flags}).
+
+@showfuncdesc{gnutls_openpgp_crt_verify_ring}
+
+@showfuncdesc{gnutls_openpgp_crt_verify_self}
+
+@subsection Verifying a certificate in the context of a TLS session
+
+Similarly with X.509 certificates, one needs to specify
+the OpenPGP keyring file in the credentials structure. The certificates
+in this file will be  used by @funcref{gnutls_certificate_verify_peers2}
+to verify the signatures in the certificate sent by the peer.
+
+@showfuncdesc{gnutls_certificate_set_openpgp_keyring_file}
+
+
+
+
+@node Digital signatures
+@section Digital signatures
+@cindex digital signatures
+
+In this section we will provide some information about digital
+signatures, how they work, and give the rationale for disabling some
+of the algorithms used.
+
+Digital signatures work by using somebody's secret key to sign some
+arbitrary data.  Then anybody else could use the public key of that
+person to verify the signature.  Since the data may be arbitrary it is
+not suitable input to a cryptographic digital signature algorithm. For
+this reason and also for performance cryptographic hash algorithms are
+used to preprocess the input to the signature algorithm. This works as
+long as it is difficult enough to generate two different messages with
+the same hash algorithm output. In that case the same signature could
+be used as a proof for both messages. Nobody wants to sign an innocent
+message of donating 1 @euro{} to Greenpeace and find out that he
+donated 1.000.000 @euro{} to Bad Inc.
+
+For a hash algorithm to be called cryptographic the following three
+requirements must hold:
+
+@enumerate
+@item Preimage resistance.
+That means the algorithm must be one way and given the output of the
+hash function @math{H(x)}, it is impossible to calculate @math{x}.
+
+@item 2nd preimage resistance.
+That means that given a pair @math{x,y} with @math{y=H(x)} it is
+impossible to calculate an @math{x'} such that @math{y=H(x')}.
+
+@item Collision resistance.
+That means that it is impossible to calculate random @math{x} and
+@math{x'} such @math{H(x')=H(x)}.
+@end enumerate
+
+The last two requirements in the list are the most important in
+digital signatures. These protect against somebody who would like to
+generate two messages with the same hash output. When an algorithm is
+considered broken usually it means that the Collision resistance of
+the algorithm is less than brute force. Using the birthday paradox the
+brute force attack takes
+@iftex
+@math{2^{(\rm{hash\ size}) / 2}}
+@end iftex
+@ifnottex
+@math{2^{((hash size) / 2)}}
+@end ifnottex
+operations. Today colliding certificates using the MD5 hash algorithm
+have been generated as shown in @xcite{WEGER}.
+
+There has been cryptographic results for the SHA-1 hash algorithms as
+well, although they are not yet critical.  Before 2004, MD5 had a
+presumed collision strength of @math{2^{64}}, but it has been showed
+to have a collision strength well under @math{2^{50}}.  As of November
+2005, it is believed that SHA-1's collision strength is around
+@math{2^{63}}.  We consider this sufficiently hard so that we still
+support SHA-1.  We anticipate that SHA-256/386/512 will be used in
+publicly-distributed certificates in the future.  When @math{2^{63}}
+can be considered too weak compared to the computer power available
+sometime in the future, SHA-1 will be disabled as well.  The collision
+attacks on SHA-1 may also get better, given the new interest in tools
+for creating them.
+
+@subsection Trading security for interoperability
+
+If you connect to a server and use GnuTLS' functions to verify the
+certificate chain, and get a @code{GNUTLS_CERT_INSECURE_ALGORITHM}
+validation error (see @ref{Verifying X.509 certificate paths}), it means
+that somewhere in the certificate chain there is a certificate signed
+using @code{RSA-MD2} or @code{RSA-MD5}.  These two digital signature
+algorithms are considered broken, so GnuTLS fails verifying
+the certificate.  In some situations, it may be useful to be
+able to verify the certificate chain anyway, assuming an attacker did
+not utilize the fact that these signatures algorithms are broken.
+This section will give help on how to achieve that.
+
+It is important to know that you do not have to enable any of
+the flags discussed here to be able to use trusted root CA
+certificates self-signed using @code{RSA-MD2} or @code{RSA-MD5}. The
+certificates in the trusted list are considered trusted irrespective
+of the signature.
+
+If you are using @funcref{gnutls_certificate_verify_peers2} to verify the
+certificate chain, you can call
+@funcref{gnutls_certificate_set_verify_flags} with the flags:
+@itemize
+@item @code{GNUTLS_VERIFY_ALLOW_SIGN_RSA_MD2}
+@item @code{GNUTLS_VERIFY_ALLOW_SIGN_RSA_MD5}
+@end itemize
+as in the following example:
+
+@smallexample
+  gnutls_certificate_set_verify_flags (x509cred,
+                                       GNUTLS_VERIFY_ALLOW_SIGN_RSA_MD5);
+@end smallexample
+
+This will tell the verifier algorithm to enable @code{RSA-MD5} when
+verifying the certificates.
+
+If you are using @funcref{gnutls_x509_crt_verify} or
+@funcref{gnutls_x509_crt_list_verify}, you can pass the
+@code{GNUTLS_VERIFY_ALLOW_SIGN_RSA_MD5} parameter directly in the
+@code{flags} parameter.
+
+If you are using these flags, it may also be a good idea to warn the
+user when verification failure occur for this reason.  The simplest is
+to not use the flags by default, and only fall back to using them
+after warning the user.  If you wish to inspect the certificate chain
+yourself, you can use @funcref{gnutls_certificate_get_peers} to extract
+the raw server's certificate chain, @funcref{gnutls_x509_crt_list_import} to parse each of the certificates, and
+then @funcref{gnutls_x509_crt_get_signature_algorithm} to find out the
+signing algorithm used for each certificate.  If any of the
+intermediary certificates are using @code{GNUTLS_SIGN_RSA_MD2} or
+@code{GNUTLS_SIGN_RSA_MD5}, you could present a warning.

@@ -1,0 +1,20 @@
+
+
+
+@float Table,gnutls_sec_param_t
+
+@itemize
+@item GNUTLS_@-SEC_@-PARAM_@-UNKNOWN
+Cannot be known
+@item GNUTLS_@-SEC_@-PARAM_@-WEAK
+50 or less bits of security
+@item GNUTLS_@-SEC_@-PARAM_@-LOW
+80 bits of security
+@item GNUTLS_@-SEC_@-PARAM_@-NORMAL
+112 bits of security
+@item GNUTLS_@-SEC_@-PARAM_@-HIGH
+128 bits of security
+@item GNUTLS_@-SEC_@-PARAM_@-ULTRA
+192 bits of security
+@end itemize
+@end float

@@ -1,0 +1,827 @@
+
+
+
+@float Table,gnutls_rnd_level_t
+
+@itemize
+@item GNUTLS_@-RND_@-NONCE
+Non-predictable random number.  Fatal in parts
+of session if broken, i.e., vulnerable to statistical analysis.
+@item GNUTLS_@-RND_@-RANDOM
+Pseudo-random cryptographic random number.
+Fatal in session if broken.
+@item GNUTLS_@-RND_@-KEY
+Fatal in many sessions if broken.
+@end itemize
+@end float
+
+
+@float Table,gnutls_cipher_algorithm_t
+
+@itemize
+@item GNUTLS_@-CIPHER_@-UNKNOWN
+Unknown algorithm.
+@item GNUTLS_@-CIPHER_@-NULL
+NULL algorithm.
+@item GNUTLS_@-CIPHER_@-ARCFOUR_@-128
+ARCFOUR stream cipher with 128-bit keys.
+@item GNUTLS_@-CIPHER_@-3DES_@-CBC
+3DES in CBC mode.
+@item GNUTLS_@-CIPHER_@-AES_@-128_@-CBC
+AES in CBC mode with 128-bit keys.
+@item GNUTLS_@-CIPHER_@-AES_@-256_@-CBC
+AES in CBC mode with 256-bit keys.
+@item GNUTLS_@-CIPHER_@-ARCFOUR_@-40
+ARCFOUR stream cipher with 40-bit keys.
+@item GNUTLS_@-CIPHER_@-CAMELLIA_@-128_@-CBC
+Camellia in CBC mode with 128-bit keys.
+@item GNUTLS_@-CIPHER_@-CAMELLIA_@-256_@-CBC
+Camellia in CBC mode with 256-bit keys.
+@item GNUTLS_@-CIPHER_@-RC2_@-40_@-CBC
+RC2 in CBC mode with 40-bit keys.
+@item GNUTLS_@-CIPHER_@-DES_@-CBC
+DES in CBC mode (56-bit keys).
+@item GNUTLS_@-CIPHER_@-AES_@-192_@-CBC
+AES in CBC mode with 192-bit keys.
+@item GNUTLS_@-CIPHER_@-AES_@-128_@-GCM
+AES in GCM mode with 128-bit keys.
+@item GNUTLS_@-CIPHER_@-AES_@-256_@-GCM
+AES in GCM mode with 256-bit keys.
+@item GNUTLS_@-CIPHER_@-IDEA_@-PGP_@-CFB
+IDEA in CFB mode.
+@item GNUTLS_@-CIPHER_@-3DES_@-PGP_@-CFB
+3DES in CFB mode.
+@item GNUTLS_@-CIPHER_@-CAST5_@-PGP_@-CFB
+CAST5 in CFB mode.
+@item GNUTLS_@-CIPHER_@-BLOWFISH_@-PGP_@-CFB
+Blowfish in CFB mode.
+@item GNUTLS_@-CIPHER_@-SAFER_@-SK128_@-PGP_@-CFB
+Safer-SK in CFB mode with 128-bit keys.
+@item GNUTLS_@-CIPHER_@-AES128_@-PGP_@-CFB
+AES in CFB mode with 128-bit keys.
+@item GNUTLS_@-CIPHER_@-AES192_@-PGP_@-CFB
+AES in CFB mode with 192-bit keys.
+@item GNUTLS_@-CIPHER_@-AES256_@-PGP_@-CFB
+AES in CFB mode with 256-bit keys.
+@item GNUTLS_@-CIPHER_@-TWOFISH_@-PGP_@-CFB
+Twofish in CFB mode.
+@end itemize
+@end float
+
+
+@float Table,gnutls_kx_algorithm_t
+
+@itemize
+@item GNUTLS_@-KX_@-UNKNOWN
+Unknown key-exchange algorithm.
+@item GNUTLS_@-KX_@-RSA
+RSA key-exchange algorithm.
+@item GNUTLS_@-KX_@-DHE_@-DSS
+DHE-DSS key-exchange algorithm.
+@item GNUTLS_@-KX_@-DHE_@-RSA
+DHE-RSA key-exchange algorithm.
+@item GNUTLS_@-KX_@-ANON_@-DH
+Anon-DH key-exchange algorithm.
+@item GNUTLS_@-KX_@-SRP
+SRP key-exchange algorithm.
+@item GNUTLS_@-KX_@-RSA_@-EXPORT
+RSA-EXPORT key-exchange algorithm.
+@item GNUTLS_@-KX_@-SRP_@-RSA
+SRP-RSA key-exchange algorithm.
+@item GNUTLS_@-KX_@-SRP_@-DSS
+SRP-DSS key-exchange algorithm.
+@item GNUTLS_@-KX_@-PSK
+PSK key-exchange algorithm.
+@item GNUTLS_@-KX_@-DHE_@-PSK
+DHE-PSK key-exchange algorithm.
+@item GNUTLS_@-KX_@-ANON_@-ECDH
+Anon-ECDH key-exchange algorithm.
+@item GNUTLS_@-KX_@-ECDHE_@-RSA
+ECDHE-RSA key-exchange algorithm.
+@item GNUTLS_@-KX_@-ECDHE_@-ECDSA
+ECDHE-ECDSA key-exchange algorithm.
+@item GNUTLS_@-KX_@-ECDHE_@-PSK
+ECDHE-PSK key-exchange algorithm.
+@end itemize
+@end float
+
+
+@float Table,gnutls_params_type_t
+
+@itemize
+@item GNUTLS_@-PARAMS_@-RSA_@-EXPORT
+Session RSA-EXPORT parameters.
+@item GNUTLS_@-PARAMS_@-DH
+Session Diffie-Hellman parameters.
+@item GNUTLS_@-PARAMS_@-ECDH
+Session Elliptic-Curve Diffie-Hellman parameters.
+@end itemize
+@end float
+
+
+@float Table,gnutls_credentials_type_t
+
+@itemize
+@item GNUTLS_@-CRD_@-CERTIFICATE
+Certificate credential.
+@item GNUTLS_@-CRD_@-ANON
+Anonymous credential.
+@item GNUTLS_@-CRD_@-SRP
+SRP credential.
+@item GNUTLS_@-CRD_@-PSK
+PSK credential.
+@item GNUTLS_@-CRD_@-IA
+IA credential.
+@end itemize
+@end float
+
+
+@float Table,gnutls_mac_algorithm_t
+
+@itemize
+@item GNUTLS_@-MAC_@-UNKNOWN
+Unknown MAC algorithm.
+@item GNUTLS_@-MAC_@-NULL
+NULL MAC algorithm (empty output).
+@item GNUTLS_@-MAC_@-MD5
+HMAC-MD5 algorithm.
+@item GNUTLS_@-MAC_@-SHA1
+HMAC-SHA-1 algorithm.
+@item GNUTLS_@-MAC_@-RMD160
+HMAC-RMD160 algorithm.
+@item GNUTLS_@-MAC_@-MD2
+HMAC-MD2 algorithm.
+@item GNUTLS_@-MAC_@-SHA256
+HMAC-SHA-256 algorithm.
+@item GNUTLS_@-MAC_@-SHA384
+HMAC-SHA-384 algorithm.
+@item GNUTLS_@-MAC_@-SHA512
+HMAC-SHA-512 algorithm.
+@item GNUTLS_@-MAC_@-SHA224
+HMAC-SHA-224 algorithm.
+@item GNUTLS_@-MAC_@-AEAD
+MAC implicit through AEAD cipher.
+@end itemize
+@end float
+
+
+@float Table,gnutls_digest_algorithm_t
+
+@itemize
+@item GNUTLS_@-DIG_@-UNKNOWN
+Unknown hash algorithm.
+@item GNUTLS_@-DIG_@-NULL
+NULL hash algorithm (empty output).
+@item GNUTLS_@-DIG_@-MD5
+MD5 algorithm.
+@item GNUTLS_@-DIG_@-SHA1
+SHA-1 algorithm.
+@item GNUTLS_@-DIG_@-RMD160
+RMD160 algorithm.
+@item GNUTLS_@-DIG_@-MD2
+MD2 algorithm.
+@item GNUTLS_@-DIG_@-SHA256
+SHA-256 algorithm.
+@item GNUTLS_@-DIG_@-SHA384
+SHA-384 algorithm.
+@item GNUTLS_@-DIG_@-SHA512
+SHA-512 algorithm.
+@item GNUTLS_@-DIG_@-SHA224
+SHA-224 algorithm.
+@end itemize
+@end float
+
+
+@float Table,gnutls_compression_method_t
+
+@itemize
+@item GNUTLS_@-COMP_@-UNKNOWN
+Unknown compression method.
+@item GNUTLS_@-COMP_@-NULL
+The NULL compression method (no compression).
+@item GNUTLS_@-COMP_@-DEFLATE
+The DEFLATE compression method from zlib.
+@item GNUTLS_@-COMP_@-ZLIB
+Same as @code{GNUTLS_COMP_DEFLATE}.
+@end itemize
+@end float
+
+
+@float Table,gnutls_alert_level_t
+
+@itemize
+@item GNUTLS_@-AL_@-WARNING
+Alert of warning severity.
+@item GNUTLS_@-AL_@-FATAL
+Alert of fatal severity.
+@end itemize
+@end float
+
+
+@float Table,gnutls_alert_description_t
+
+@itemize
+@item GNUTLS_@-A_@-CLOSE_@-NOTIFY
+Close notify.
+@item GNUTLS_@-A_@-UNEXPECTED_@-MESSAGE
+Unexpected message.
+@item GNUTLS_@-A_@-BAD_@-RECORD_@-MAC
+Bad record MAC.
+@item GNUTLS_@-A_@-DECRYPTION_@-FAILED
+Decryption failed.
+@item GNUTLS_@-A_@-RECORD_@-OVERFLOW
+Record overflow.
+@item GNUTLS_@-A_@-DECOMPRESSION_@-FAILURE
+Decompression failed.
+@item GNUTLS_@-A_@-HANDSHAKE_@-FAILURE
+Handshake failed.
+@item GNUTLS_@-A_@-SSL3_@-NO_@-CERTIFICATE
+No certificate.
+@item GNUTLS_@-A_@-BAD_@-CERTIFICATE
+Certificate is bad.
+@item GNUTLS_@-A_@-UNSUPPORTED_@-CERTIFICATE
+Certificate is not supported.
+@item GNUTLS_@-A_@-CERTIFICATE_@-REVOKED
+Certificate was revoked.
+@item GNUTLS_@-A_@-CERTIFICATE_@-EXPIRED
+Certificate is expired.
+@item GNUTLS_@-A_@-CERTIFICATE_@-UNKNOWN
+Unknown certificate.
+@item GNUTLS_@-A_@-ILLEGAL_@-PARAMETER
+Illegal parameter.
+@item GNUTLS_@-A_@-UNKNOWN_@-CA
+CA is unknown.
+@item GNUTLS_@-A_@-ACCESS_@-DENIED
+Access was denied.
+@item GNUTLS_@-A_@-DECODE_@-ERROR
+Decode error.
+@item GNUTLS_@-A_@-DECRYPT_@-ERROR
+Decrypt error.
+@item GNUTLS_@-A_@-EXPORT_@-RESTRICTION
+Export restriction.
+@item GNUTLS_@-A_@-PROTOCOL_@-VERSION
+Error in protocol version.
+@item GNUTLS_@-A_@-INSUFFICIENT_@-SECURITY
+Insufficient security.
+@item GNUTLS_@-A_@-INTERNAL_@-ERROR
+Internal error.
+@item GNUTLS_@-A_@-USER_@-CANCELED
+User canceled.
+@item GNUTLS_@-A_@-NO_@-RENEGOTIATION
+No renegotiation is allowed.
+@item GNUTLS_@-A_@-UNSUPPORTED_@-EXTENSION
+An unsupported extension was
+sent.
+@item GNUTLS_@-A_@-CERTIFICATE_@-UNOBTAINABLE
+Could not retrieve the
+specified certificate.
+@item GNUTLS_@-A_@-UNRECOGNIZED_@-NAME
+The server name sent was not
+recognized.
+@item GNUTLS_@-A_@-UNKNOWN_@-PSK_@-IDENTITY
+The SRP/PSK username is missing
+or not known.
+@end itemize
+@end float
+
+
+@float Table,gnutls_handshake_description_t
+
+@itemize
+@item GNUTLS_@-HANDSHAKE_@-HELLO_@-REQUEST
+Hello request.
+@item GNUTLS_@-HANDSHAKE_@-CLIENT_@-HELLO
+Client hello.
+@item GNUTLS_@-HANDSHAKE_@-SERVER_@-HELLO
+Server hello.
+@item GNUTLS_@-HANDSHAKE_@-HELLO_@-VERIFY_@-REQUEST
+DTLS Hello verify request.
+@item GNUTLS_@-HANDSHAKE_@-NEW_@-SESSION_@-TICKET
+New session ticket.
+@item GNUTLS_@-HANDSHAKE_@-CERTIFICATE_@-PKT
+Certificate packet.
+@item GNUTLS_@-HANDSHAKE_@-SERVER_@-KEY_@-EXCHANGE
+Server key exchange.
+@item GNUTLS_@-HANDSHAKE_@-CERTIFICATE_@-REQUEST
+Certificate request.
+@item GNUTLS_@-HANDSHAKE_@-SERVER_@-HELLO_@-DONE
+Server hello done.
+@item GNUTLS_@-HANDSHAKE_@-CERTIFICATE_@-VERIFY
+Certificate verify.
+@item GNUTLS_@-HANDSHAKE_@-CLIENT_@-KEY_@-EXCHANGE
+Client key exchange.
+@item GNUTLS_@-HANDSHAKE_@-FINISHED
+Finished.
+@item GNUTLS_@-HANDSHAKE_@-SUPPLEMENTAL
+Supplemental.
+@item GNUTLS_@-HANDSHAKE_@-CHANGE_@-CIPHER_@-SPEC
+Change Cipher Spec
+@item GNUTLS_@-HANDSHAKE_@-CLIENT_@-HELLO_@-V2
+SSLv2 Client Hello.
+@end itemize
+@end float
+
+
+@float Table,gnutls_certificate_status_t
+
+@itemize
+@item GNUTLS_@-CERT_@-INVALID
+The certificate is not signed by one of the
+known authorities or the signature is invalid.
+@item GNUTLS_@-CERT_@-REVOKED
+Certificate is revoked by its authority.  In X.509 this will be
+set only if CRLs are checked.
+@item GNUTLS_@-CERT_@-SIGNER_@-NOT_@-FOUND
+The certificate's issuer is not known. 
+This is the case if the issue is not included in the trusted certificate list.
+not found.
+@item GNUTLS_@-CERT_@-SIGNER_@-NOT_@-CA
+The certiﬁcate’s signer was not a CA. This
+may happen if this was a version 1 certiﬁcate, which is common with 
+some CAs, or a version 3 certiﬁcate without the basic constrains extension.
+@item GNUTLS_@-CERT_@-INSECURE_@-ALGORITHM
+The certiﬁcate was signed using an in-
+secure algorithm such as MD2 or MD5. These algorithms have been broken and
+should not be trusted.
+@item GNUTLS_@-CERT_@-NOT_@-ACTIVATED
+The certificate is not yet activated.
+@item GNUTLS_@-CERT_@-EXPIRED
+The certificate has expired.
+@end itemize
+@end float
+
+
+@float Table,gnutls_certificate_request_t
+
+@itemize
+@item GNUTLS_@-CERT_@-IGNORE
+Ignore certificate.
+@item GNUTLS_@-CERT_@-REQUEST
+Request certificate.
+@item GNUTLS_@-CERT_@-REQUIRE
+Require certificate.
+@end itemize
+@end float
+
+
+@float Table,gnutls_openpgp_crt_status_t
+
+@itemize
+@item GNUTLS_@-OPENPGP_@-CERT
+Send entire certificate.
+@item GNUTLS_@-OPENPGP_@-CERT_@-FINGERPRINT
+Send only certificate fingerprint.
+@end itemize
+@end float
+
+
+@float Table,gnutls_close_request_t
+
+@itemize
+@item GNUTLS_@-SHUT_@-RDWR
+Disallow further receives/sends.
+@item GNUTLS_@-SHUT_@-WR
+Disallow further sends.
+@end itemize
+@end float
+
+
+@float Table,gnutls_protocol_t
+
+@itemize
+@item GNUTLS_@-SSL3
+SSL version 3.0.
+@item GNUTLS_@-TLS1_@-0
+TLS version 1.0.
+@item GNUTLS_@-TLS1
+Same as @code{GNUTLS_TLS1_0}.
+@item GNUTLS_@-TLS1_@-1
+TLS version 1.1.
+@item GNUTLS_@-TLS1_@-2
+TLS version 1.2.
+@item GNUTLS_@-DTLS1_@-0
+DTLS version 1.0.
+@item GNUTLS_@-VERSION_@-MAX
+Maps to the highest supported TLS version.
+@item GNUTLS_@-VERSION_@-UNKNOWN
+Unknown SSL/TLS version.
+@end itemize
+@end float
+
+
+@float Table,gnutls_certificate_type_t
+
+@itemize
+@item GNUTLS_@-CRT_@-UNKNOWN
+Unknown certificate type.
+@item GNUTLS_@-CRT_@-X509
+X.509 Certificate.
+@item GNUTLS_@-CRT_@-OPENPGP
+OpenPGP certificate.
+@end itemize
+@end float
+
+
+@float Table,gnutls_x509_crt_fmt_t
+
+@itemize
+@item GNUTLS_@-X509_@-FMT_@-DER
+X.509 certificate in DER format (binary).
+@item GNUTLS_@-X509_@-FMT_@-PEM
+X.509 certificate in PEM format (text).
+@end itemize
+@end float
+
+
+@float Table,gnutls_certificate_print_formats_t
+
+@itemize
+@item GNUTLS_@-CRT_@-PRINT_@-FULL
+Full information about certificate.
+@item GNUTLS_@-CRT_@-PRINT_@-ONELINE
+Information about certificate in one line.
+@item GNUTLS_@-CRT_@-PRINT_@-UNSIGNED_@-FULL
+All info for an unsigned certificate.
+@end itemize
+@end float
+
+
+@float Table,gnutls_pk_algorithm_t
+
+@itemize
+@item GNUTLS_@-PK_@-UNKNOWN
+Unknown public-key algorithm.
+@item GNUTLS_@-PK_@-RSA
+RSA public-key algorithm.
+@item GNUTLS_@-PK_@-DSA
+DSA public-key algorithm.
+@item GNUTLS_@-PK_@-DH
+Diffie-Hellman algorithm. Used to generate parameters.
+@item GNUTLS_@-PK_@-ECC
+Elliptic curve algorithm. Used to generate parameters.
+@end itemize
+@end float
+
+
+@float Table,gnutls_sign_algorithm_t
+
+@itemize
+@item GNUTLS_@-SIGN_@-UNKNOWN
+Unknown signature algorithm.
+@item GNUTLS_@-SIGN_@-RSA_@-SHA1
+Digital signature algorithm RSA with SHA-1
+@item GNUTLS_@-SIGN_@-RSA_@-SHA
+Same as @code{GNUTLS_SIGN_RSA_SHA1}.
+@item GNUTLS_@-SIGN_@-DSA_@-SHA1
+Digital signature algorithm DSA with SHA-1
+@item GNUTLS_@-SIGN_@-DSA_@-SHA
+Same as @code{GNUTLS_SIGN_DSA_SHA1}.
+@item GNUTLS_@-SIGN_@-RSA_@-MD5
+Digital signature algorithm RSA with MD5.
+@item GNUTLS_@-SIGN_@-RSA_@-MD2
+Digital signature algorithm RSA with MD2.
+@item GNUTLS_@-SIGN_@-RSA_@-RMD160
+Digital signature algorithm RSA with RMD-160.
+@item GNUTLS_@-SIGN_@-RSA_@-SHA256
+Digital signature algorithm RSA with SHA-256.
+@item GNUTLS_@-SIGN_@-RSA_@-SHA384
+Digital signature algorithm RSA with SHA-384.
+@item GNUTLS_@-SIGN_@-RSA_@-SHA512
+Digital signature algorithm RSA with SHA-512.
+@item GNUTLS_@-SIGN_@-RSA_@-SHA224
+Digital signature algorithm RSA with SHA-224.
+@item GNUTLS_@-SIGN_@-DSA_@-SHA224
+Digital signature algorithm DSA with SHA-224
+@item GNUTLS_@-SIGN_@-DSA_@-SHA256
+Digital signature algorithm DSA with SHA-256
+@item GNUTLS_@-SIGN_@-ECDSA_@-SHA1
+ECDSA with SHA1.
+@item GNUTLS_@-SIGN_@-ECDSA_@-SHA224
+Digital signature algorithm ECDSA with SHA-224.
+@item GNUTLS_@-SIGN_@-ECDSA_@-SHA256
+Digital signature algorithm ECDSA with SHA-256.
+@item GNUTLS_@-SIGN_@-ECDSA_@-SHA384
+Digital signature algorithm ECDSA with SHA-384.
+@item GNUTLS_@-SIGN_@-ECDSA_@-SHA512
+Digital signature algorithm ECDSA with SHA-512.
+@end itemize
+@end float
+
+
+@float Table,gnutls_ecc_curve_t
+
+@itemize
+@item GNUTLS_@-ECC_@-CURVE_@-INVALID
+Cannot be known
+@item GNUTLS_@-ECC_@-CURVE_@-SECP224R1
+the SECP224R1 curve
+@item GNUTLS_@-ECC_@-CURVE_@-SECP256R1
+the SECP256R1 curve
+@item GNUTLS_@-ECC_@-CURVE_@-SECP384R1
+the SECP384R1 curve
+@item GNUTLS_@-ECC_@-CURVE_@-SECP521R1
+the SECP521R1 curve
+@item GNUTLS_@-ECC_@-CURVE_@-SECP192R1
+the SECP192R1 curve
+@end itemize
+@end float
+
+
+@float Table,gnutls_sec_param_t
+
+@itemize
+@item GNUTLS_@-SEC_@-PARAM_@-UNKNOWN
+Cannot be known
+@item GNUTLS_@-SEC_@-PARAM_@-WEAK
+50 or less bits of security
+@item GNUTLS_@-SEC_@-PARAM_@-LOW
+80 bits of security
+@item GNUTLS_@-SEC_@-PARAM_@-NORMAL
+112 bits of security
+@item GNUTLS_@-SEC_@-PARAM_@-HIGH
+128 bits of security
+@item GNUTLS_@-SEC_@-PARAM_@-ULTRA
+192 bits of security
+@end itemize
+@end float
+
+
+@float Table,gnutls_channel_binding_t
+
+@itemize
+@item GNUTLS_@-CB_@-TLS_@-UNIQUE
+"tls-unique" (RFC 5929) channel binding
+@end itemize
+@end float
+
+
+@float Table,gnutls_server_name_type_t
+
+@itemize
+@item GNUTLS_@-NAME_@-DNS
+Domain Name System name type.
+@end itemize
+@end float
+
+
+@float Table,gnutls_supplemental_data_format_type_t
+
+@itemize
+@item GNUTLS_@-SUPPLEMENTAL_@-USER_@-MAPPING_@-DATA
+Supplemental user mapping data.
+@end itemize
+@end float
+
+
+@float Table,gnutls_psk_key_flags
+
+@itemize
+@item GNUTLS_@-PSK_@-KEY_@-RAW
+PSK-key in raw format.
+@item GNUTLS_@-PSK_@-KEY_@-HEX
+PSK-key in hex format.
+@end itemize
+@end float
+
+
+@float Table,gnutls_x509_subject_alt_name_t
+
+@itemize
+@item GNUTLS_@-SAN_@-DNSNAME
+DNS-name SAN.
+@item GNUTLS_@-SAN_@-RFC822NAME
+E-mail address SAN.
+@item GNUTLS_@-SAN_@-URI
+URI SAN.
+@item GNUTLS_@-SAN_@-IPADDRESS
+IP address SAN.
+@item GNUTLS_@-SAN_@-OTHERNAME
+OtherName SAN.
+@item GNUTLS_@-SAN_@-DN
+DN SAN.
+@item GNUTLS_@-SAN_@-OTHERNAME_@-XMPP
+Virtual SAN, used by
+gnutls_x509_crt_get_subject_alt_othername_oid.
+@end itemize
+@end float
+
+
+@float Table,gnutls_privkey_type_t
+
+@itemize
+@item GNUTLS_@-PRIVKEY_@-X509
+X.509 private key, @code{gnutls_x509_privkey_t}.
+@item GNUTLS_@-PRIVKEY_@-OPENPGP
+OpenPGP private key, @code{gnutls_openpgp_privkey_t}.
+@item GNUTLS_@-PRIVKEY_@-PKCS11
+PKCS11 private key, @code{gnutls_pkcs11_privkey_t}.
+@item GNUTLS_@-PRIVKEY_@-EXT
+External private key, operating using callbacks.
+@end itemize
+@end float
+
+
+@float Table,gnutls_openpgp_crt_fmt_t
+
+@itemize
+@item GNUTLS_@-OPENPGP_@-FMT_@-RAW
+OpenPGP certificate in raw format.
+@item GNUTLS_@-OPENPGP_@-FMT_@-BASE64
+OpenPGP certificate in base64 format.
+@end itemize
+@end float
+
+
+@float Table,gnutls_pkcs11_obj_info_t
+
+@itemize
+@item GNUTLS_@-PKCS11_@-OBJ_@-ID_@-HEX
+The object ID in hex.
+@item GNUTLS_@-PKCS11_@-OBJ_@-LABEL
+The object label.
+@item GNUTLS_@-PKCS11_@-OBJ_@-TOKEN_@-LABEL
+The token's label.
+@item GNUTLS_@-PKCS11_@-OBJ_@-TOKEN_@-SERIAL
+The token's serial number.
+@item GNUTLS_@-PKCS11_@-OBJ_@-TOKEN_@-MANUFACTURER
+The token's manufacturer.
+@item GNUTLS_@-PKCS11_@-OBJ_@-TOKEN_@-MODEL
+The token's model.
+@item GNUTLS_@-PKCS11_@-OBJ_@-ID
+The object ID.
+@item GNUTLS_@-PKCS11_@-OBJ_@-LIBRARY_@-VERSION
+The library's used to access the object version.
+@item GNUTLS_@-PKCS11_@-OBJ_@-LIBRARY_@-DESCRIPTION
+The library's used to access the object description (name).
+@item GNUTLS_@-PKCS11_@-OBJ_@-LIBRARY_@-MANUFACTURER
+The library's used to access the object manufacturer name.
+@end itemize
+@end float
+
+
+@float Table,gnutls_pkcs11_obj_attr_t
+
+@itemize
+@item GNUTLS_@-PKCS11_@-OBJ_@-ATTR_@-CRT_@-ALL
+Specify all certificates.
+@item GNUTLS_@-PKCS11_@-OBJ_@-ATTR_@-CRT_@-TRUSTED
+Specify all certificates marked as trusted.
+@item GNUTLS_@-PKCS11_@-OBJ_@-ATTR_@-CRT_@-WITH_@-PRIVKEY
+Specify all certificates with a corresponding private key.
+@item GNUTLS_@-PKCS11_@-OBJ_@-ATTR_@-PUBKEY
+Specify all public keys.
+@item GNUTLS_@-PKCS11_@-OBJ_@-ATTR_@-PRIVKEY
+Specify all private keys.
+@item GNUTLS_@-PKCS11_@-OBJ_@-ATTR_@-ALL
+Specify all objects.
+@end itemize
+@end float
+
+
+@float Table,gnutls_pkcs11_token_info_t
+
+@itemize
+@item GNUTLS_@-PKCS11_@-TOKEN_@-LABEL
+The token's label
+@item GNUTLS_@-PKCS11_@-TOKEN_@-SERIAL
+The token's serial number
+@item GNUTLS_@-PKCS11_@-TOKEN_@-MANUFACTURER
+The token's manufacturer
+@item GNUTLS_@-PKCS11_@-TOKEN_@-MODEL
+The token's model
+@end itemize
+@end float
+
+
+@float Table,gnutls_pkcs11_obj_type_t
+
+@itemize
+@item GNUTLS_@-PKCS11_@-OBJ_@-UNKNOWN
+Unknown PKCS11 object.
+@item GNUTLS_@-PKCS11_@-OBJ_@-X509_@-CRT
+X.509 certificate.
+@item GNUTLS_@-PKCS11_@-OBJ_@-PUBKEY
+Public key.
+@item GNUTLS_@-PKCS11_@-OBJ_@-PRIVKEY
+Private key.
+@item GNUTLS_@-PKCS11_@-OBJ_@-SECRET_@-KEY
+Secret key.
+@item GNUTLS_@-PKCS11_@-OBJ_@-DATA
+Data object.
+@end itemize
+@end float
+
+
+@float Table,gnutls_pkcs12_bag_type_t
+
+@itemize
+@item GNUTLS_@-BAG_@-EMPTY
+Empty PKCS-12 bag.
+@item GNUTLS_@-BAG_@-PKCS8_@-ENCRYPTED_@-KEY
+PKCS-12 bag with PKCS-8 encrypted key.
+@item GNUTLS_@-BAG_@-PKCS8_@-KEY
+PKCS-12 bag with PKCS-8 key.
+@item GNUTLS_@-BAG_@-CERTIFICATE
+PKCS-12 bag with certificate.
+@item GNUTLS_@-BAG_@-CRL
+PKCS-12 bag with CRL.
+@item GNUTLS_@-BAG_@-SECRET
+PKCS-12 bag with secret PKCS-9 keys.
+@item GNUTLS_@-BAG_@-ENCRYPTED
+Encrypted PKCS-12 bag.
+@item GNUTLS_@-BAG_@-UNKNOWN
+Unknown PKCS-12 bag.
+@end itemize
+@end float
+
+
+@float Table,gnutls_certificate_import_flags
+
+@itemize
+@item GNUTLS_@-X509_@-CRT_@-LIST_@-IMPORT_@-FAIL_@-IF_@-EXCEED
+Fail if the
+certificates in the buffer are more than the space allocated for
+certificates. The error code will be @code{GNUTLS_E_SHORT_MEMORY_BUFFER}.
+@item GNUTLS_@-X509_@-CRT_@-LIST_@-FAIL_@-IF_@-UNSORTED
+Fail if the certificates
+in the buffer are not ordered starting from subject to issuer.
+The error code will be @code{GNUTLS_E_CERTIFICATE_LIST_UNSORTED}.
+@end itemize
+@end float
+
+
+@float Table,gnutls_certificate_verify_flags
+
+@itemize
+@item GNUTLS_@-VERIFY_@-DISABLE_@-CA_@-SIGN
+If set a signer does not have to be
+a certificate authority. This flag should normaly be disabled,
+unless you know what this means.
+@item GNUTLS_@-VERIFY_@-ALLOW_@-X509_@-V1_@-CA_@-CRT
+Allow trusted CA certiﬁcates
+with version 1. This is safer than @code{GNUTLS_VERIFY_ALLOW_ANY_X509_V1_CA_CRT},
+and should be used instead. That way only signers in your trusted list
+will be allowed to have certiﬁcates of version 1. This is the default.
+@item GNUTLS_@-VERIFY_@-DO_@-NOT_@-ALLOW_@-SAME
+If a certificate is not signed by
+anyone trusted but exists in the trusted CA list do not treat it
+as trusted.
+@item GNUTLS_@-VERIFY_@-ALLOW_@-ANY_@-X509_@-V1_@-CA_@-CRT
+Allow CA certificates that
+have version 1 (both root and intermediate). This might be
+dangerous since those haven't the basicConstraints
+extension. Must be used in combination with
+@code{GNUTLS_VERIFY_ALLOW_X509_V1_CA_CRT}.
+@item GNUTLS_@-VERIFY_@-ALLOW_@-SIGN_@-RSA_@-MD2
+Allow certificates to be signed
+using the broken MD2 algorithm.
+@item GNUTLS_@-VERIFY_@-ALLOW_@-SIGN_@-RSA_@-MD5
+Allow certificates to be signed
+using the broken MD5 algorithm.
+@item GNUTLS_@-VERIFY_@-DISABLE_@-TIME_@-CHECKS
+Disable checking of activation
+and expiration validity periods of certificate chains. Don't set
+this unless you understand the security implications.
+@item GNUTLS_@-VERIFY_@-DISABLE_@-TRUSTED_@-TIME_@-CHECKS
+If set a signer in the trusted
+list is never checked for expiration or activation.
+@item GNUTLS_@-VERIFY_@-DO_@-NOT_@-ALLOW_@-X509_@-V1_@-CA_@-CRT
+Do not allow trusted CA
+certificates that have version 1.  This option is to be used
+to deprecate all certificates of version 1.
+@item GNUTLS_@-VERIFY_@-DISABLE_@-CRL_@-CHECKS
+Disable checking for validity
+using certificate revocation lists.
+@end itemize
+@end float
+
+
+@float Table,gnutls_pkcs_encrypt_flags_t
+
+@itemize
+@item GNUTLS_@-PKCS_@-PLAIN
+Unencrypted private key.
+@item GNUTLS_@-PKCS8_@-PLAIN
+Same as @code{GNUTLS_PKCS_PLAIN}.
+@item GNUTLS_@-PKCS_@-USE_@-PKCS12_@-3DES
+PKCS-12 3DES.
+@item GNUTLS_@-PKCS8_@-USE_@-PKCS12_@-3DES
+Same as @code{GNUTLS_PKCS_USE_PKCS12_3DES}.
+@item GNUTLS_@-PKCS_@-USE_@-PKCS12_@-ARCFOUR
+PKCS-12 ARCFOUR.
+@item GNUTLS_@-PKCS8_@-USE_@-PKCS12_@-ARCFOUR
+Same as @code{GNUTLS_PKCS_USE_PKCS12_ARCFOUR}.
+@item GNUTLS_@-PKCS_@-USE_@-PKCS12_@-RC2_@-40
+PKCS-12 RC2-40.
+@item GNUTLS_@-PKCS8_@-USE_@-PKCS12_@-RC2_@-40
+Same as @code{GNUTLS_PKCS_USE_PKCS12_RC2_40}.
+@item GNUTLS_@-PKCS_@-USE_@-PBES2_@-3DES
+PBES2 3DES.
+@item GNUTLS_@-PKCS_@-USE_@-PBES2_@-AES_@-128
+PBES2 AES-128.
+@item GNUTLS_@-PKCS_@-USE_@-PBES2_@-AES_@-192
+PBES2 AES-192.
+@item GNUTLS_@-PKCS_@-USE_@-PBES2_@-AES_@-256
+PBES2 AES-256.
+@end itemize
+@end float

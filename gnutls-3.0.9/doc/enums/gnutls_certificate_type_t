@@ -1,0 +1,14 @@
+
+
+
+@float Table,gnutls_certificate_type_t
+
+@itemize
+@item GNUTLS_@-CRT_@-UNKNOWN
+Unknown certificate type.
+@item GNUTLS_@-CRT_@-X509
+X.509 Certificate.
+@item GNUTLS_@-CRT_@-OPENPGP
+OpenPGP certificate.
+@end itemize
+@end float

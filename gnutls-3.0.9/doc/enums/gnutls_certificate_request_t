@@ -1,0 +1,14 @@
+
+
+
+@float Table,gnutls_certificate_request_t
+
+@itemize
+@item GNUTLS_@-CERT_@-IGNORE
+Ignore certificate.
+@item GNUTLS_@-CERT_@-REQUEST
+Request certificate.
+@item GNUTLS_@-CERT_@-REQUIRE
+Require certificate.
+@end itemize
+@end float

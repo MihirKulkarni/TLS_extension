@@ -1,0 +1,10 @@
+
+
+
+@float Table,gnutls_server_name_type_t
+
+@itemize
+@item GNUTLS_@-NAME_@-DNS
+Domain Name System name type.
+@end itemize
+@end float

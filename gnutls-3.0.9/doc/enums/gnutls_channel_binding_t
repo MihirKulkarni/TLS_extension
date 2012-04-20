@@ -1,0 +1,10 @@
+
+
+
+@float Table,gnutls_channel_binding_t
+
+@itemize
+@item GNUTLS_@-CB_@-TLS_@-UNIQUE
+"tls-unique" (RFC 5929) channel binding
+@end itemize
+@end float

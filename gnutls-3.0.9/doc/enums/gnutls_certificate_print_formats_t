@@ -1,0 +1,14 @@
+
+
+
+@float Table,gnutls_certificate_print_formats_t
+
+@itemize
+@item GNUTLS_@-CRT_@-PRINT_@-FULL
+Full information about certificate.
+@item GNUTLS_@-CRT_@-PRINT_@-ONELINE
+Information about certificate in one line.
+@item GNUTLS_@-CRT_@-PRINT_@-UNSIGNED_@-FULL
+All info for an unsigned certificate.
+@end itemize
+@end float

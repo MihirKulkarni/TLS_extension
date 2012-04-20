@@ -1,0 +1,53 @@
+If you want to contribute (implement something from the current list, or
+anything), contact the developer's mailing list (gnutls-dev@lists.gnupg.org),
+in order to avoid having people working on the same thing. 
+
+Current list:
+* Try to use _gnutls_hash_fast() and _gnutls_hmac_fast() where
+  possible. Especially when hashing/hmacing records. This would
+  allow direct usage of CPU or chip acceleration, which do not
+  typically allow multiple hashes.
+* Add certificate image support (see RFC3709, RFC6170)
+* Perform signature calculation in PKCS #11 using not plain
+  RSA but rather the combination of RSA-SHA256, RSA-SHA1 etc.
+  That will allow the usage of more secure tokens that do not
+  allow plain RSA.
+* Allow setting a PKCS #11 module to gnutls_x509_trust_list_t, to verify 
+  against, similarly to NSS way.
+* Support replacing individual algorithms via a PKCS #11 module -
+  maybe use p11-kit for that.
+* Support PKCS#8 AES and DES-MD5 (tests/enc3pkcs8.pem) encrypted keys.
+* Implement TLS-PSK with PKCS #11.
+* Add support for generating empty CRLs
+* Document the format for the supported DN attributes.
+* Audit the code
+- Add function to extract the signers of an openpgp key. Should
+  be similar to gnutls_x509_crt_get_dn_oid().
+- Add function to verify an openpgp key against a plain key.
+- Clean up name space of helper functions in library (memmem,
+   firstElement, bit_mask, ...) for platforms that libtool's
+   -export-symbols-regex doesn't work.
+- Add Kerberos ciphersuites
+- Certificate chain validation improvements:
+  - Implement "correct" DN comparison (instead of memcmp).
+  - Support critical key usage KeyCertSign and cRLSign.
+  - Support path length constraints.
+- RFC 3280 compliant certificate path validation.
+- Add progress handler gnutls_{dh,rsa}_params_generate2, to allow
+  application to give progress feedback to user.
+- Chain verifications.
+  - Check path length constraints.
+  - Check keyCertSign key usages.
+  - Reject extensions in v1 certificates.
+- Exhaustive test suite, using NIST's PKI Test vectors,
+  see http://csrc.nist.gov/pki/testing/x509paths_old.html
+  and http://csrc.nist.gov/pki/testing/x509paths.html
+- Make gnutls-cli-debug exit with better error messages if the
+  handshake fails, rather than saying that the server doesn't support
+  TLS.
+- Make gnutls_certificate_get_ours return a zero-terminated array (or
+  add a new API that return the size of the array).
+
+(+) Means high priority 
+(*) Means medium priority
+(-) Means low priority (ie. nobody is interested to develop that)

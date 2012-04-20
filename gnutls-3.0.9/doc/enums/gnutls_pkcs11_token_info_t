@@ -1,0 +1,16 @@
+
+
+
+@float Table,gnutls_pkcs11_token_info_t
+
+@itemize
+@item GNUTLS_@-PKCS11_@-TOKEN_@-LABEL
+The token's label
+@item GNUTLS_@-PKCS11_@-TOKEN_@-SERIAL
+The token's serial number
+@item GNUTLS_@-PKCS11_@-TOKEN_@-MANUFACTURER
+The token's manufacturer
+@item GNUTLS_@-PKCS11_@-TOKEN_@-MODEL
+The token's model
+@end itemize
+@end float

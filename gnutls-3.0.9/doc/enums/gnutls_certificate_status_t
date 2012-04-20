@@ -1,0 +1,30 @@
+
+
+
+@float Table,gnutls_certificate_status_t
+
+@itemize
+@item GNUTLS_@-CERT_@-INVALID
+The certificate is not signed by one of the
+known authorities or the signature is invalid.
+@item GNUTLS_@-CERT_@-REVOKED
+Certificate is revoked by its authority.  In X.509 this will be
+set only if CRLs are checked.
+@item GNUTLS_@-CERT_@-SIGNER_@-NOT_@-FOUND
+The certificate's issuer is not known. 
+This is the case if the issue is not included in the trusted certificate list.
+not found.
+@item GNUTLS_@-CERT_@-SIGNER_@-NOT_@-CA
+The certiﬁcate’s signer was not a CA. This
+may happen if this was a version 1 certiﬁcate, which is common with 
+some CAs, or a version 3 certiﬁcate without the basic constrains extension.
+@item GNUTLS_@-CERT_@-INSECURE_@-ALGORITHM
+The certiﬁcate was signed using an in-
+secure algorithm such as MD2 or MD5. These algorithms have been broken and
+should not be trusted.
+@item GNUTLS_@-CERT_@-NOT_@-ACTIVATED
+The certificate is not yet activated.
+@item GNUTLS_@-CERT_@-EXPIRED
+The certificate has expired.
+@end itemize
+@end float

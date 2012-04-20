@@ -1,0 +1,377 @@
+Available cipher suites:
+@multitable @columnfractions .60 .20 .20
+@item TLS_DH_ANON_ARCFOUR_MD5
+@tab 0x00 0x18
+@tab SSL3.0
+@item TLS_DH_ANON_3DES_EDE_CBC_SHA1
+@tab 0x00 0x1B
+@tab SSL3.0
+@item TLS_DH_ANON_AES_128_CBC_SHA1
+@tab 0x00 0x34
+@tab SSL3.0
+@item TLS_DH_ANON_AES_256_CBC_SHA1
+@tab 0x00 0x3A
+@tab SSL3.0
+@item TLS_DH_ANON_CAMELLIA_128_CBC_SHA1
+@tab 0x00 0x46
+@tab TLS1.0
+@item TLS_DH_ANON_CAMELLIA_256_CBC_SHA1
+@tab 0x00 0x89
+@tab TLS1.0
+@item TLS_DH_ANON_AES_128_CBC_SHA256
+@tab 0x00 0x6C
+@tab TLS1.2
+@item TLS_DH_ANON_AES_256_CBC_SHA256
+@tab 0x00 0x6D
+@tab TLS1.2
+@item TLS_PSK_SHA_ARCFOUR_SHA1
+@tab 0x00 0x8A
+@tab TLS1.0
+@item TLS_PSK_SHA_3DES_EDE_CBC_SHA1
+@tab 0x00 0x8B
+@tab TLS1.0
+@item TLS_PSK_SHA_AES_128_CBC_SHA1
+@tab 0x00 0x8C
+@tab TLS1.0
+@item TLS_PSK_SHA_AES_256_CBC_SHA1
+@tab 0x00 0x8D
+@tab TLS1.0
+@item TLS_PSK_AES_128_CBC_SHA256
+@tab 0x00 0xAE
+@tab TLS1.0
+@item TLS_PSK_AES_128_GCM_SHA256
+@tab 0x00 0xA8
+@tab TLS1.2
+@item TLS_PSK_NULL_SHA256
+@tab 0x00 0xB0
+@tab TLS1.0
+@item TLS_DHE_PSK_SHA_ARCFOUR_SHA1
+@tab 0x00 0x8E
+@tab TLS1.0
+@item TLS_DHE_PSK_SHA_3DES_EDE_CBC_SHA1
+@tab 0x00 0x8F
+@tab TLS1.0
+@item TLS_DHE_PSK_SHA_AES_128_CBC_SHA1
+@tab 0x00 0x90
+@tab TLS1.0
+@item TLS_DHE_PSK_SHA_AES_256_CBC_SHA1
+@tab 0x00 0x91
+@tab TLS1.0
+@item TLS_DHE_PSK_AES_128_CBC_SHA256
+@tab 0x00 0xB2
+@tab TLS1.0
+@item TLS_DHE_PSK_AES_128_GCM_SHA256
+@tab 0x00 0xAA
+@tab TLS1.2
+@item TLS_DHE_PSK_NULL_SHA256
+@tab 0x00 0xB4
+@tab TLS1.0
+@item TLS_SRP_SHA_3DES_EDE_CBC_SHA1
+@tab 0xC0 0x1A
+@tab TLS1.0
+@item TLS_SRP_SHA_AES_128_CBC_SHA1
+@tab 0xC0 0x1D
+@tab TLS1.0
+@item TLS_SRP_SHA_AES_256_CBC_SHA1
+@tab 0xC0 0x20
+@tab TLS1.0
+@item TLS_SRP_SHA_DSS_3DES_EDE_CBC_SHA1
+@tab 0xC0 0x1C
+@tab TLS1.0
+@item TLS_SRP_SHA_RSA_3DES_EDE_CBC_SHA1
+@tab 0xC0 0x1B
+@tab TLS1.0
+@item TLS_SRP_SHA_DSS_AES_128_CBC_SHA1
+@tab 0xC0 0x1F
+@tab TLS1.0
+@item TLS_SRP_SHA_RSA_AES_128_CBC_SHA1
+@tab 0xC0 0x1E
+@tab TLS1.0
+@item TLS_SRP_SHA_DSS_AES_256_CBC_SHA1
+@tab 0xC0 0x22
+@tab TLS1.0
+@item TLS_SRP_SHA_RSA_AES_256_CBC_SHA1
+@tab 0xC0 0x21
+@tab TLS1.0
+@item TLS_DHE_DSS_ARCFOUR_SHA1
+@tab 0x00 0x66
+@tab TLS1.0
+@item TLS_DHE_DSS_3DES_EDE_CBC_SHA1
+@tab 0x00 0x13
+@tab SSL3.0
+@item TLS_DHE_DSS_AES_128_CBC_SHA1
+@tab 0x00 0x32
+@tab SSL3.0
+@item TLS_DHE_DSS_AES_256_CBC_SHA1
+@tab 0x00 0x38
+@tab SSL3.0
+@item TLS_DHE_DSS_CAMELLIA_128_CBC_SHA1
+@tab 0x00 0x44
+@tab TLS1.0
+@item TLS_DHE_DSS_CAMELLIA_256_CBC_SHA1
+@tab 0x00 0x87
+@tab TLS1.0
+@item TLS_DHE_DSS_AES_128_CBC_SHA256
+@tab 0x00 0x40
+@tab TLS1.2
+@item TLS_DHE_DSS_AES_256_CBC_SHA256
+@tab 0x00 0x6A
+@tab TLS1.2
+@item TLS_DHE_RSA_3DES_EDE_CBC_SHA1
+@tab 0x00 0x16
+@tab SSL3.0
+@item TLS_DHE_RSA_AES_128_CBC_SHA1
+@tab 0x00 0x33
+@tab SSL3.0
+@item TLS_DHE_RSA_AES_256_CBC_SHA1
+@tab 0x00 0x39
+@tab SSL3.0
+@item TLS_DHE_RSA_CAMELLIA_128_CBC_SHA1
+@tab 0x00 0x45
+@tab TLS1.0
+@item TLS_DHE_RSA_CAMELLIA_256_CBC_SHA1
+@tab 0x00 0x88
+@tab TLS1.0
+@item TLS_DHE_RSA_AES_128_CBC_SHA256
+@tab 0x00 0x67
+@tab TLS1.2
+@item TLS_DHE_RSA_AES_256_CBC_SHA256
+@tab 0x00 0x6B
+@tab TLS1.2
+@item TLS_RSA_NULL_MD5
+@tab 0x00 0x01
+@tab SSL3.0
+@item TLS_RSA_NULL_SHA1
+@tab 0x00 0x02
+@tab SSL3.0
+@item TLS_RSA_NULL_SHA256
+@tab 0x00 0x3B
+@tab TLS1.2
+@item TLS_RSA_EXPORT_ARCFOUR_40_MD5
+@tab 0x00 0x03
+@tab SSL3.0
+@item TLS_RSA_ARCFOUR_SHA1
+@tab 0x00 0x05
+@tab SSL3.0
+@item TLS_RSA_ARCFOUR_MD5
+@tab 0x00 0x04
+@tab SSL3.0
+@item TLS_RSA_3DES_EDE_CBC_SHA1
+@tab 0x00 0x0A
+@tab SSL3.0
+@item TLS_RSA_AES_128_CBC_SHA1
+@tab 0x00 0x2F
+@tab SSL3.0
+@item TLS_RSA_AES_256_CBC_SHA1
+@tab 0x00 0x35
+@tab SSL3.0
+@item TLS_RSA_CAMELLIA_128_CBC_SHA1
+@tab 0x00 0x41
+@tab TLS1.0
+@item TLS_RSA_CAMELLIA_256_CBC_SHA1
+@tab 0x00 0x84
+@tab TLS1.0
+@item TLS_RSA_AES_128_CBC_SHA256
+@tab 0x00 0x3C
+@tab TLS1.2
+@item TLS_RSA_AES_256_CBC_SHA256
+@tab 0x00 0x3D
+@tab TLS1.2
+@item TLS_RSA_AES_128_GCM_SHA256
+@tab 0x00 0x9C
+@tab TLS1.2
+@item TLS_DHE_RSA_AES_128_GCM_SHA256
+@tab 0x00 0x9E
+@tab TLS1.2
+@item TLS_DHE_DSS_AES_128_GCM_SHA256
+@tab 0x00 0xA2
+@tab TLS1.2
+@item TLS_DH_ANON_AES_128_GCM_SHA256
+@tab 0x00 0xA6
+@tab TLS1.2
+@item TLS_ECDH_ANON_NULL_SHA
+@tab 0xC0 0x15
+@tab TLS1.0
+@item TLS_ECDH_ANON_3DES_EDE_CBC_SHA
+@tab 0xC0 0x17
+@tab TLS1.0
+@item TLS_ECDH_ANON_AES_128_CBC_SHA
+@tab 0xC0 0x18
+@tab TLS1.0
+@item TLS_ECDH_ANON_AES_256_CBC_SHA
+@tab 0xC0 0x19
+@tab TLS1.0
+@item TLS_ECDHE_RSA_NULL_SHA
+@tab 0xC0 0x10
+@tab TLS1.0
+@item TLS_ECDHE_RSA_3DES_EDE_CBC_SHA
+@tab 0xC0 0x12
+@tab TLS1.0
+@item TLS_ECDHE_RSA_AES_128_CBC_SHA
+@tab 0xC0 0x13
+@tab TLS1.0
+@item TLS_ECDHE_RSA_AES_256_CBC_SHA
+@tab 0xC0 0x14
+@tab TLS1.0
+@item TLS_ECDHE_ECDSA_NULL_SHA
+@tab 0xC0 0x06
+@tab TLS1.0
+@item TLS_ECDHE_ECDSA_3DES_EDE_CBC_SHA
+@tab 0xC0 0x08
+@tab TLS1.0
+@item TLS_ECDHE_ECDSA_AES_128_CBC_SHA
+@tab 0xC0 0x09
+@tab TLS1.0
+@item TLS_ECDHE_ECDSA_AES_256_CBC_SHA
+@tab 0xC0 0x0A
+@tab TLS1.0
+@item TLS_ECDHE_ECDSA_AES_128_CBC_SHA256
+@tab 0xC0 0x23
+@tab TLS1.2
+@item TLS_ECDHE_RSA_AES_128_CBC_SHA256
+@tab 0xC0 0x27
+@tab TLS1.2
+@item TLS_ECDHE_ECDSA_AES_128_GCM_SHA256
+@tab 0xC0 0x2B
+@tab TLS1.2
+@item TLS_ECDHE_RSA_AES_128_GCM_SHA256
+@tab 0xC0 0x2F
+@tab TLS1.2
+@item TLS_ECDHE_PSK_3DES_EDE_CBC_SHA
+@tab 0xC0 0x34
+@tab TLS1.0
+@item TLS_ECDHE_PSK_AES_128_CBC_SHA
+@tab 0xC0 0x35
+@tab TLS1.0
+@item TLS_ECDHE_PSK_AES_256_CBC_SHA
+@tab 0xC0 0x36
+@tab TLS1.0
+@item TLS_ECDHE_PSK_AES_128_CBC_SHA256
+@tab 0xC0 0x37
+@tab TLS1.0
+@item TLS_ECDHE_PSK_AES_256_CBC_SHA384
+@tab 0xC0 0x38
+@tab TLS1.0
+@item TLS_ECDHE_PSK_NULL_SHA256
+@tab 0xC0 0x3A
+@tab TLS1.0
+@item TLS_ECDHE_PSK_NULL_SHA384
+@tab 0xC0 0x3B
+@tab TLS1.0
+@item TLS_ECDHE_ECDSA_AES_256_GCM_SHA384
+@tab 0xC0 0x2E
+@tab TLS1.2
+@item TLS_ECDHE_RSA_AES_256_GCM_SHA384
+@tab 0xC0 0x30
+@tab TLS1.2
+@item TLS_ECDHE_ECDSA_AES_256_CBC_SHA384
+@tab 0xC0 0x24
+@tab TLS1.2
+@end multitable
+
+
+Available certificate types:
+@itemize
+@item X.509
+@item OPENPGP
+@end itemize
+
+Available protocols:
+@itemize
+@item SSL3.0
+@item TLS1.0
+@item TLS1.1
+@item TLS1.2
+@item DTLS1.0
+@end itemize
+
+Available ciphers:
+@itemize
+@item AES-256-CBC
+@item AES-192-CBC
+@item AES-128-CBC
+@item AES-128-GCM
+@item AES-256-GCM
+@item 3DES-CBC
+@item DES-CBC
+@item ARCFOUR-128
+@item ARCFOUR-40
+@item RC2-40
+@item CAMELLIA-256-CBC
+@item CAMELLIA-128-CBC
+@item IDEA-PGP-CFB
+@item 3DES-PGP-CFB
+@item CAST5-PGP-CFB
+@item BLOWFISH-PGP-CFB
+@item SAFER-SK128-PGP-CFB
+@item AES-128-PGP-CFB
+@item AES-192-PGP-CFB
+@item AES-256-PGP-CFB
+@item TWOFISH-PGP-CFB
+@item NULL
+@end itemize
+
+Available MAC algorithms:
+@itemize
+@item SHA1
+@item MD5
+@item SHA256
+@item SHA384
+@item SHA512
+@item SHA224
+@item AEAD
+@item MD2
+@item RIPEMD160
+@item MAC-NULL
+@end itemize
+
+Available key exchange methods:
+@itemize
+@item ANON-DH
+@item ANON-ECDH
+@item RSA
+@item RSA-EXPORT
+@item DHE-RSA
+@item ECDHE-RSA
+@item ECDHE-ECDSA
+@item DHE-DSS
+@item SRP-DSS
+@item SRP-RSA
+@item SRP
+@item PSK
+@item DHE-PSK
+@item ECDHE-PSK
+@end itemize
+
+Available public key algorithms:
+@itemize
+@item RSA
+@item DSA
+@item ECC
+@end itemize
+
+Available public key signature algorithms:
+@itemize
+@item RSA-SHA1
+@item RSA-SHA224
+@item RSA-SHA256
+@item RSA-SHA384
+@item RSA-SHA512
+@item RSA-RMD160
+@item DSA-SHA1
+@item DSA-SHA224
+@item DSA-SHA256
+@item RSA-MD5
+@item RSA-MD2
+@item ECDSA-SHA1
+@item ECDSA-SHA224
+@item ECDSA-SHA256
+@item ECDSA-SHA384
+@item ECDSA-SHA512
+@end itemize
+
+Available compression methods:
+@itemize
+@item DEFLATE
+@item NULL
+@end itemize

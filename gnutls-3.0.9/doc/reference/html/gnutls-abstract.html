@@ -1,0 +1,1432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>abstract</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="GnuTLS API Reference Manual">
+<link rel="up" href="intro.html" title="GnuTLS API Reference Manual">
+<link rel="prev" href="gnutls-gnutls.html" title="gnutls">
+<link rel="next" href="gnutls-x509.html" title="x509">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="gnutls-gnutls.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="intro.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">GnuTLS API Reference Manual</th>
+<td><a accesskey="n" href="gnutls-x509.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gnutls-abstract.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gnutls-abstract.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gnutls-abstract"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gnutls-abstract.top_of_page"></a>abstract</span></h2>
+<p>abstract</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gnutls-abstract.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="gnutls-abstract.html#gnutls-pubkey-st" title="struct gnutls_pubkey_st">gnutls_pubkey_st</a>;
+typedef             <a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t">gnutls_pubkey_t</a>;
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-init" title="gnutls_pubkey_init ()">gnutls_pubkey_init</a>                  (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> *key</code></em>);
+<GTKDOCLINK HREF="void"><span class="returnvalue">void</span></GTKDOCLINK>                <a class="link" href="gnutls-abstract.html#gnutls-pubkey-deinit" title="gnutls_pubkey_deinit ()">gnutls_pubkey_deinit</a>                (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-get-pk-algorithm" title="gnutls_pubkey_get_pk_algorithm ()">gnutls_pubkey_get_pk_algorithm</a>      (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> *bits</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-import-x509" title="gnutls_pubkey_import_x509 ()">gnutls_pubkey_import_x509</a>           (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> crt</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-import-pkcs11" title="gnutls_pubkey_import_pkcs11 ()">gnutls_pubkey_import_pkcs11</a>         (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-pkcs11.html#gnutls-pkcs11-obj-t" title="gnutls_pkcs11_obj_t"><span class="type">gnutls_pkcs11_obj_t</span></a> obj</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-import-openpgp" title="gnutls_pubkey_import_openpgp ()">gnutls_pubkey_import_openpgp</a>        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-openpgp-crt-t" title="gnutls_openpgp_crt_t"><span class="type">gnutls_openpgp_crt_t</span></a> crt</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-get-preferred-hash-algorithm" title="gnutls_pubkey_get_preferred_hash_algorithm ()">gnutls_pubkey_get_preferred_hash_algorithm</a>
+                                                        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> *hash</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> *mand</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-get-pk-rsa-raw" title="gnutls_pubkey_get_pk_rsa_raw ()">gnutls_pubkey_get_pk_rsa_raw</a>        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *m</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *e</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-get-pk-dsa-raw" title="gnutls_pubkey_get_pk_dsa_raw ()">gnutls_pubkey_get_pk_dsa_raw</a>        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *p</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *q</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *g</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *y</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-export" title="gnutls_pubkey_export ()">gnutls_pubkey_export</a>                (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-fmt-t" title="enum gnutls_x509_crt_fmt_t"><span class="type">gnutls_x509_crt_fmt_t</span></a> format</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="void"><span class="type">void</span></GTKDOCLINK> *output_data</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="size-t"><span class="type">size_t</span></GTKDOCLINK> *output_data_size</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-get-key-id" title="gnutls_pubkey_get_key_id ()">gnutls_pubkey_get_key_id</a>            (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="char"><span class="type">char</span></GTKDOCLINK> *output_data</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="size-t"><span class="type">size_t</span></GTKDOCLINK> *output_data_size</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-get-key-usage" title="gnutls_pubkey_get_key_usage ()">gnutls_pubkey_get_key_usage</a>         (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> *usage</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-set-key-usage" title="gnutls_pubkey_set_key_usage ()">gnutls_pubkey_set_key_usage</a>         (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> usage</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-import" title="gnutls_pubkey_import ()">gnutls_pubkey_import</a>                (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *data</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-fmt-t" title="enum gnutls_x509_crt_fmt_t"><span class="type">gnutls_x509_crt_fmt_t</span></a> format</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-import-pkcs11-url" title="gnutls_pubkey_import_pkcs11_url ()">gnutls_pubkey_import_pkcs11_url</a>     (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="char"><span class="type">char</span></GTKDOCLINK> *url</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-import-dsa-raw" title="gnutls_pubkey_import_dsa_raw ()">gnutls_pubkey_import_dsa_raw</a>        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *p</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *q</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *g</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *y</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-import-rsa-raw" title="gnutls_pubkey_import_rsa_raw ()">gnutls_pubkey_import_rsa_raw</a>        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *m</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *e</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-x509-crt-set-pubkey" title="gnutls_x509_crt_set_pubkey ()">gnutls_x509_crt_set_pubkey</a>          (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> crt</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-x509-crq-set-pubkey" title="gnutls_x509_crq_set_pubkey ()">gnutls_x509_crq_set_pubkey</a>          (<em class="parameter"><code><a class="link" href="gnutls-x509.html#gnutls-x509-crq-t" title="gnutls_x509_crq_t"><span class="type">gnutls_x509_crq_t</span></a> crq</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-verify-hash" title="gnutls_pubkey_verify_hash ()">gnutls_pubkey_verify_hash</a>           (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *hash</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *signature</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-pubkey-get-verify-algorithm" title="gnutls_pubkey_get_verify_algorithm ()">gnutls_pubkey_get_verify_algorithm</a>  (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *signature</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> *hash</code></em>);
+struct              <a class="link" href="gnutls-abstract.html#gnutls-privkey-st" title="struct gnutls_privkey_st">gnutls_privkey_st</a>;
+typedef             <a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t">gnutls_privkey_t</a>;
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-privkey-init" title="gnutls_privkey_init ()">gnutls_privkey_init</a>                 (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> *key</code></em>);
+<GTKDOCLINK HREF="void"><span class="returnvalue">void</span></GTKDOCLINK>                <a class="link" href="gnutls-abstract.html#gnutls-privkey-deinit" title="gnutls_privkey_deinit ()">gnutls_privkey_deinit</a>               (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> key</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-privkey-get-pk-algorithm" title="gnutls_privkey_get_pk_algorithm ()">gnutls_privkey_get_pk_algorithm</a>     (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> *bits</code></em>);
+<a class="link" href="gnutls-gnutls.html#gnutls-privkey-type-t" title="enum gnutls_privkey_type_t"><span class="returnvalue">gnutls_privkey_type_t</span></a> <a class="link" href="gnutls-abstract.html#gnutls-privkey-get-type" title="gnutls_privkey_get_type ()">gnutls_privkey_get_type</a>           (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> key</code></em>);
+#define             <a class="link" href="gnutls-abstract.html#GNUTLS-PRIVKEY-IMPORT-AUTO-RELEASE:CAPS" title="GNUTLS_PRIVKEY_IMPORT_AUTO_RELEASE">GNUTLS_PRIVKEY_IMPORT_AUTO_RELEASE</a>
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-privkey-import-pkcs11" title="gnutls_privkey_import_pkcs11 ()">gnutls_privkey_import_pkcs11</a>        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> pkey</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-pkcs11-privkey-t" title="gnutls_pkcs11_privkey_t"><span class="type">gnutls_pkcs11_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-privkey-import-x509" title="gnutls_privkey_import_x509 ()">gnutls_privkey_import_x509</a>          (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> pkey</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-privkey-t" title="gnutls_x509_privkey_t"><span class="type">gnutls_x509_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-privkey-import-openpgp" title="gnutls_privkey_import_openpgp ()">gnutls_privkey_import_openpgp</a>       (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> pkey</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-openpgp-privkey-t" title="gnutls_openpgp_privkey_t"><span class="type">gnutls_openpgp_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-privkey-sign-data" title="gnutls_privkey_sign_data ()">gnutls_privkey_sign_data</a>            (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> signer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> hash</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *data</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *signature</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-privkey-sign-hash" title="gnutls_privkey_sign_hash ()">gnutls_privkey_sign_hash</a>            (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> signer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> hash_algo</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *hash_data</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *signature</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-privkey-decrypt-data" title="gnutls_privkey_decrypt_data ()">gnutls_privkey_decrypt_data</a>         (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *ciphertext</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *plaintext</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-x509-crt-privkey-sign" title="gnutls_x509_crt_privkey_sign ()">gnutls_x509_crt_privkey_sign</a>        (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> crt</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> issuer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> issuer_key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> dig</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-x509-crl-privkey-sign" title="gnutls_x509_crl_privkey_sign ()">gnutls_x509_crl_privkey_sign</a>        (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crl-t" title="gnutls_x509_crl_t"><span class="type">gnutls_x509_crl_t</span></a> crl</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> issuer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> issuer_key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> dig</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);
+<GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 <a class="link" href="gnutls-abstract.html#gnutls-x509-crq-privkey-sign" title="gnutls_x509_crq_privkey_sign ()">gnutls_x509_crq_privkey_sign</a>        (<em class="parameter"><code><a class="link" href="gnutls-x509.html#gnutls-x509-crq-t" title="gnutls_x509_crq_t"><span class="type">gnutls_x509_crq_t</span></a> crq</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> dig</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gnutls-abstract.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gnutls-abstract.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="gnutls-pubkey-st"></a><h3>struct gnutls_pubkey_st</h3>
+<pre class="programlisting">struct gnutls_pubkey_st;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-t"></a><h3>gnutls_pubkey_t</h3>
+<pre class="programlisting">typedef struct gnutls_pubkey_st *gnutls_pubkey_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-init"></a><h3>gnutls_pubkey_init ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_init                  (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> *key</code></em>);</pre>
+<p>
+This function will initialize an public key structure.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The structure to be initialized</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-deinit"></a><h3>gnutls_pubkey_deinit ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void"><span class="returnvalue">void</span></GTKDOCLINK>                gnutls_pubkey_deinit                (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>);</pre>
+<p>
+This function will deinitialize a public key structure.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The structure to be deinitialized</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-get-pk-algorithm"></a><h3>gnutls_pubkey_get_pk_algorithm ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_get_pk_algorithm      (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> *bits</code></em>);</pre>
+<p>
+This function will return the public key algorithm of a public
+key and if possible will return a number of bits that indicates
+the security parameter of the key.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>should contain a <a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> structure</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bits</code></em> :</span></p></td>
+<td>If set will return the number of bits of the parameters (may be NULL)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a member of the <a class="link" href="gnutls-gnutls.html#gnutls-pk-algorithm-t" title="enum gnutls_pk_algorithm_t"><span class="type">gnutls_pk_algorithm_t</span></a> enumeration on
+success, or a negative error code on error.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-import-x509"></a><h3>gnutls_pubkey_import_x509 ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_import_x509           (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> crt</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);</pre>
+<p>
+This function will import the given public key to the abstract
+<a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> structure.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The public key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>crt</code></em> :</span></p></td>
+<td>The certificate to be imported</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>should be zero</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-import-pkcs11"></a><h3>gnutls_pubkey_import_pkcs11 ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_import_pkcs11         (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-pkcs11.html#gnutls-pkcs11-obj-t" title="gnutls_pkcs11_obj_t"><span class="type">gnutls_pkcs11_obj_t</span></a> obj</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);</pre>
+<p>
+Imports a public key from a pkcs11 key. This function will import
+the given public key to the abstract <a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> structure.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The public key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>The parameters to be imported</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>should be zero</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-import-openpgp"></a><h3>gnutls_pubkey_import_openpgp ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_import_openpgp        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-openpgp-crt-t" title="gnutls_openpgp_crt_t"><span class="type">gnutls_openpgp_crt_t</span></a> crt</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);</pre>
+<p>
+Imports a public key from an openpgp key. This function will import
+the given public key to the abstract <a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a>
+structure. The subkey set as preferred will be imported or the
+master key otherwise.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The public key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>crt</code></em> :</span></p></td>
+<td>The certificate to be imported</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>should be zero</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-get-preferred-hash-algorithm"></a><h3>gnutls_pubkey_get_preferred_hash_algorithm ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_get_preferred_hash_algorithm
+                                                        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> *hash</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> *mand</code></em>);</pre>
+<p>
+This function will read the certifcate and return the appropriate digest
+algorithm to use for signing with this certificate. Some certificates (i.e.
+DSA might not be able to sign without the preferred algorithm).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Holds the certificate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hash</code></em> :</span></p></td>
+<td>The result of the call with the hash algorithm used for signature</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mand</code></em> :</span></p></td>
+<td>If non zero it means that the algorithm MUST use this hash. May be NULL.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the 0 if the hash algorithm is found. A negative error code is
+returned on error.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-get-pk-rsa-raw"></a><h3>gnutls_pubkey_get_pk_rsa_raw ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_get_pk_rsa_raw        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *m</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *e</code></em>);</pre>
+<p>
+This function will export the RSA public key's parameters found in
+the given structure.  The new parameters will be allocated using
+<a class="link" href="gnutls-gnutls.html#gnutls-malloc" title="gnutls_malloc"><code class="function">gnutls_malloc()</code></a> and will be stored in the appropriate datum.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Holds the certificate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>m</code></em> :</span></p></td>
+<td>will hold the modulus</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e</code></em> :</span></p></td>
+<td>will hold the public exponent</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> on success, otherwise a negative error code.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-get-pk-dsa-raw"></a><h3>gnutls_pubkey_get_pk_dsa_raw ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_get_pk_dsa_raw        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *p</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *q</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *g</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *y</code></em>);</pre>
+<p>
+This function will export the DSA public key's parameters found in
+the given certificate.  The new parameters will be allocated using
+<a class="link" href="gnutls-gnutls.html#gnutls-malloc" title="gnutls_malloc"><code class="function">gnutls_malloc()</code></a> and will be stored in the appropriate datum.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Holds the public key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
+<td>will hold the p</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td>will hold the q</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>g</code></em> :</span></p></td>
+<td>will hold the g</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>will hold the y</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> on success, otherwise a negative error code.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-export"></a><h3>gnutls_pubkey_export ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_export                (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-fmt-t" title="enum gnutls_x509_crt_fmt_t"><span class="type">gnutls_x509_crt_fmt_t</span></a> format</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="void"><span class="type">void</span></GTKDOCLINK> *output_data</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="size-t"><span class="type">size_t</span></GTKDOCLINK> *output_data_size</code></em>);</pre>
+<p>
+This function will export the certificate to DER or PEM format.
+</p>
+<p>
+If the buffer provided is not long enough to hold the output, then
+*output_data_size is updated and <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SHORT-MEMORY-BUFFER:CAPS" title="GNUTLS_E_SHORT_MEMORY_BUFFER"><code class="literal">GNUTLS_E_SHORT_MEMORY_BUFFER</code></a> will
+be returned.
+</p>
+<p>
+If the structure is PEM encoded, it will have a header
+of "BEGIN CERTIFICATE".
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Holds the certificate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>the format of output params. One of PEM or DER.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>output_data</code></em> :</span></p></td>
+<td>will contain a certificate PEM or DER encoded</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>output_data_size</code></em> :</span></p></td>
+<td>holds the size of output_data (and will be
+replaced by the actual size of parameters)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>In case of failure a negative error code will be
+returned, and 0 on success.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-get-key-id"></a><h3>gnutls_pubkey_get_key_id ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_get_key_id            (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="char"><span class="type">char</span></GTKDOCLINK> *output_data</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="size-t"><span class="type">size_t</span></GTKDOCLINK> *output_data_size</code></em>);</pre>
+<p>
+This function will return a unique ID the depends on the public
+key parameters. This ID can be used in checking whether a
+certificate corresponds to the given public key.
+</p>
+<p>
+If the buffer provided is not long enough to hold the output, then
+*output_data_size is updated and <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SHORT-MEMORY-BUFFER:CAPS" title="GNUTLS_E_SHORT_MEMORY_BUFFER"><code class="literal">GNUTLS_E_SHORT_MEMORY_BUFFER</code></a> will
+be returned.  The output will normally be a SHA-1 hash output,
+which is 20 bytes.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Holds the public key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>should be 0 for now</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>output_data</code></em> :</span></p></td>
+<td>will contain the key ID</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>output_data_size</code></em> :</span></p></td>
+<td>holds the size of output_data (and will be
+replaced by the actual size of parameters)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>In case of failure a negative error code will be
+returned, and 0 on success.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-get-key-usage"></a><h3>gnutls_pubkey_get_key_usage ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_get_key_usage         (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> *usage</code></em>);</pre>
+<p>
+This function will return the key usage of the public key.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>should contain a <a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> structure</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>usage</code></em> :</span></p></td>
+<td>If set will return the number of bits of the parameters (may be NULL)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-set-key-usage"></a><h3>gnutls_pubkey_set_key_usage ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_set_key_usage         (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> usage</code></em>);</pre>
+<p>
+This function will set the key usage flags of the public key. This
+is only useful if the key is to be exported to a certificate or
+certificate request.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>a certificate of type <a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>usage</code></em> :</span></p></td>
+<td>an ORed sequence of the GNUTLS_KEY_* elements.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-import"></a><h3>gnutls_pubkey_import ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_import                (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *data</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-fmt-t" title="enum gnutls_x509_crt_fmt_t"><span class="type">gnutls_x509_crt_fmt_t</span></a> format</code></em>);</pre>
+<p>
+This function will convert the given DER or PEM encoded Public key 
+to the native gnutls_pubkey_t format.The output will be stored 
+in <em class="parameter"><code>key</code></em>. 
+If the Certificate is PEM encoded it should have a header of "PUBLIC KEY".
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The structure to store the parsed public key.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>The DER or PEM encoded certificate.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>One of DER or PEM</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-import-pkcs11-url"></a><h3>gnutls_pubkey_import_pkcs11_url ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_import_pkcs11_url     (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="char"><span class="type">char</span></GTKDOCLINK> *url</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);</pre>
+<p>
+This function will import a PKCS 11 certificate to a <a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a>
+structure.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>A key of type <a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>url</code></em> :</span></p></td>
+<td>A PKCS 11 url</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>One of GNUTLS_PKCS11_OBJ_* flags</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-import-dsa-raw"></a><h3>gnutls_pubkey_import_dsa_raw ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_import_dsa_raw        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *p</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *q</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *g</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *y</code></em>);</pre>
+<p>
+This function will convert the given DSA raw parameters to the
+native <a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> format.  The output will be stored
+in <em class="parameter"><code>key</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The structure to store the parsed key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
+<td>holds the p</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td>holds the q</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>g</code></em> :</span></p></td>
+<td>holds the g</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>holds the y</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-import-rsa-raw"></a><h3>gnutls_pubkey_import_rsa_raw ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_import_rsa_raw        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *m</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *e</code></em>);</pre>
+<p>
+This function will replace the parameters in the given structure.
+The new parameters should be stored in the appropriate
+gnutls_datum.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Is a structure will hold the parameters</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>m</code></em> :</span></p></td>
+<td>holds the modulus</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e</code></em> :</span></p></td>
+<td>holds the public exponent</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> on success, or an negative error code.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-x509-crt-set-pubkey"></a><h3>gnutls_x509_crt_set_pubkey ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_x509_crt_set_pubkey          (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> crt</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>);</pre>
+<p>
+This function will set the public parameters from the given public
+key to the request.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>crt</code></em> :</span></p></td>
+<td>should contain a <a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> structure</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>holds a public key</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-x509-crq-set-pubkey"></a><h3>gnutls_x509_crq_set_pubkey ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_x509_crq_set_pubkey          (<em class="parameter"><code><a class="link" href="gnutls-x509.html#gnutls-x509-crq-t" title="gnutls_x509_crq_t"><span class="type">gnutls_x509_crq_t</span></a> crq</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>);</pre>
+<p>
+This function will set the public parameters from the given public
+key to the request.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>crq</code></em> :</span></p></td>
+<td>should contain a <a class="link" href="gnutls-x509.html#gnutls-x509-crq-t" title="gnutls_x509_crq_t"><span class="type">gnutls_x509_crq_t</span></a> structure</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>holds a public key</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-verify-hash"></a><h3>gnutls_pubkey_verify_hash ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_verify_hash           (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *hash</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *signature</code></em>);</pre>
+<p>
+This function will verify the given signed digest, using the
+parameters from the certificate.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Holds the certificate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>should be 0 for now</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hash</code></em> :</span></p></td>
+<td>holds the hash digest to be verified</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signature</code></em> :</span></p></td>
+<td>contains the signature</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value (<a class="link" href="gnutls-gnutls.html#GNUTLS-E-PK-SIG-VERIFY-FAILED:CAPS" title="GNUTLS_E_PK_SIG_VERIFY_FAILED"><code class="literal">GNUTLS_E_PK_SIG_VERIFY_FAILED</code></a> in verification failure).</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-pubkey-get-verify-algorithm"></a><h3>gnutls_pubkey_get_verify_algorithm ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_pubkey_get_verify_algorithm  (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-pubkey-t" title="gnutls_pubkey_t"><span class="type">gnutls_pubkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *signature</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> *hash</code></em>);</pre>
+<p>
+This function will read the certifcate and the signed data to
+determine the hash algorithm used to generate the signature.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Holds the certificate</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signature</code></em> :</span></p></td>
+<td>contains the signature</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hash</code></em> :</span></p></td>
+<td>The result of the call with the hash algorithm used for signature</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-st"></a><h3>struct gnutls_privkey_st</h3>
+<pre class="programlisting">struct gnutls_privkey_st;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-t"></a><h3>gnutls_privkey_t</h3>
+<pre class="programlisting">typedef struct gnutls_privkey_st *gnutls_privkey_t;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-init"></a><h3>gnutls_privkey_init ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_privkey_init                 (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> *key</code></em>);</pre>
+<p>
+This function will initialize an private key structure.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The structure to be initialized</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-deinit"></a><h3>gnutls_privkey_deinit ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void"><span class="returnvalue">void</span></GTKDOCLINK>                gnutls_privkey_deinit               (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> key</code></em>);</pre>
+<p>
+This function will deinitialize a private key structure.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The structure to be deinitialized</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-get-pk-algorithm"></a><h3>gnutls_privkey_get_pk_algorithm ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_privkey_get_pk_algorithm     (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> *bits</code></em>);</pre>
+<p>
+This function will return the public key algorithm of a private
+key and if possible will return a number of bits that indicates
+the security parameter of the key.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>should contain a <a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> structure</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bits</code></em> :</span></p></td>
+<td>If set will return the number of bits of the parameters (may be NULL)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a member of the <a class="link" href="gnutls-gnutls.html#gnutls-pk-algorithm-t" title="enum gnutls_pk_algorithm_t"><span class="type">gnutls_pk_algorithm_t</span></a> enumeration on
+success, or a negative error code on error.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-get-type"></a><h3>gnutls_privkey_get_type ()</h3>
+<pre class="programlisting"><a class="link" href="gnutls-gnutls.html#gnutls-privkey-type-t" title="enum gnutls_privkey_type_t"><span class="returnvalue">gnutls_privkey_type_t</span></a> gnutls_privkey_get_type           (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> key</code></em>);</pre>
+<p>
+This function will return the type of the private key. This is
+actually the type of the subsystem used to set this private key.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>should contain a <a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> structure</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a member of the <a class="link" href="gnutls-gnutls.html#gnutls-privkey-type-t" title="enum gnutls_privkey_type_t"><span class="type">gnutls_privkey_type_t</span></a> enumeration on
+success, or a negative error code on error.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GNUTLS-PRIVKEY-IMPORT-AUTO-RELEASE:CAPS"></a><h3>GNUTLS_PRIVKEY_IMPORT_AUTO_RELEASE</h3>
+<pre class="programlisting">#define GNUTLS_PRIVKEY_IMPORT_AUTO_RELEASE (1&lt;&lt;0)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-import-pkcs11"></a><h3>gnutls_privkey_import_pkcs11 ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_privkey_import_pkcs11        (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> pkey</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-pkcs11-privkey-t" title="gnutls_pkcs11_privkey_t"><span class="type">gnutls_pkcs11_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);</pre>
+<p>
+This function will import the given private key to the abstract
+<a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> structure.
+</p>
+<p>
+The <a class="link" href="gnutls-gnutls.html#gnutls-pkcs11-privkey-t" title="gnutls_pkcs11_privkey_t"><span class="type">gnutls_pkcs11_privkey_t</span></a> object must not be deallocated
+during the lifetime of this structure.
+</p>
+<p>
+<em class="parameter"><code>flags</code></em> might be zero or one of <a class="link" href="gnutls-abstract.html#GNUTLS-PRIVKEY-IMPORT-AUTO-RELEASE:CAPS" title="GNUTLS_PRIVKEY_IMPORT_AUTO_RELEASE"><code class="literal">GNUTLS_PRIVKEY_IMPORT_AUTO_RELEASE</code></a>
+and <GTKDOCLINK HREF="GNUTLS-PRIVKEY-IMPORT-COPY:CAPS"><code class="literal">GNUTLS_PRIVKEY_IMPORT_COPY</code></GTKDOCLINK>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pkey</code></em> :</span></p></td>
+<td>The private key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The private key to be imported</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>Flags for the import</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-import-x509"></a><h3>gnutls_privkey_import_x509 ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_privkey_import_x509          (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> pkey</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-privkey-t" title="gnutls_x509_privkey_t"><span class="type">gnutls_x509_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);</pre>
+<p>
+This function will import the given private key to the abstract
+<a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> structure.
+</p>
+<p>
+The <a class="link" href="gnutls-gnutls.html#gnutls-x509-privkey-t" title="gnutls_x509_privkey_t"><span class="type">gnutls_x509_privkey_t</span></a> object must not be deallocated
+during the lifetime of this structure.
+</p>
+<p>
+<em class="parameter"><code>flags</code></em> might be zero or one of <a class="link" href="gnutls-abstract.html#GNUTLS-PRIVKEY-IMPORT-AUTO-RELEASE:CAPS" title="GNUTLS_PRIVKEY_IMPORT_AUTO_RELEASE"><code class="literal">GNUTLS_PRIVKEY_IMPORT_AUTO_RELEASE</code></a>
+and <GTKDOCLINK HREF="GNUTLS-PRIVKEY-IMPORT-COPY:CAPS"><code class="literal">GNUTLS_PRIVKEY_IMPORT_COPY</code></GTKDOCLINK>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pkey</code></em> :</span></p></td>
+<td>The private key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The private key to be imported</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>Flags for the import</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-import-openpgp"></a><h3>gnutls_privkey_import_openpgp ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_privkey_import_openpgp       (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> pkey</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-openpgp-privkey-t" title="gnutls_openpgp_privkey_t"><span class="type">gnutls_openpgp_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);</pre>
+<p>
+This function will import the given private key to the abstract
+<a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> structure.
+</p>
+<p>
+The <a class="link" href="gnutls-gnutls.html#gnutls-openpgp-privkey-t" title="gnutls_openpgp_privkey_t"><span class="type">gnutls_openpgp_privkey_t</span></a> object must not be deallocated
+during the lifetime of this structure. The subkey set as
+preferred will be used, or the master key otherwise.
+</p>
+<p>
+<em class="parameter"><code>flags</code></em> might be zero or one of <a class="link" href="gnutls-abstract.html#GNUTLS-PRIVKEY-IMPORT-AUTO-RELEASE:CAPS" title="GNUTLS_PRIVKEY_IMPORT_AUTO_RELEASE"><code class="literal">GNUTLS_PRIVKEY_IMPORT_AUTO_RELEASE</code></a>
+and <GTKDOCLINK HREF="GNUTLS-PRIVKEY-IMPORT-COPY:CAPS"><code class="literal">GNUTLS_PRIVKEY_IMPORT_COPY</code></GTKDOCLINK>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pkey</code></em> :</span></p></td>
+<td>The private key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>The private key to be imported</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>Flags for the import</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-sign-data"></a><h3>gnutls_privkey_sign_data ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_privkey_sign_data            (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> signer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> hash</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *data</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *signature</code></em>);</pre>
+<p>
+This function will sign the given data using a signature algorithm
+supported by the private key. Signature algorithms are always used
+together with a hash functions.  Different hash functions may be
+used for the RSA algorithm, but only the SHA family for the DSA keys.
+</p>
+<p>
+Use <a class="link" href="gnutls-abstract.html#gnutls-pubkey-get-preferred-hash-algorithm" title="gnutls_pubkey_get_preferred_hash_algorithm ()"><code class="function">gnutls_pubkey_get_preferred_hash_algorithm()</code></a> to determine
+the hash algorithm.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signer</code></em> :</span></p></td>
+<td>Holds the key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hash</code></em> :</span></p></td>
+<td>should be a digest algorithm</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>should be 0 for now</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>holds the data to be signed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signature</code></em> :</span></p></td>
+<td>will contain the signature allocate with <a class="link" href="gnutls-gnutls.html#gnutls-malloc" title="gnutls_malloc"><code class="function">gnutls_malloc()</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-sign-hash"></a><h3>gnutls_privkey_sign_hash ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_privkey_sign_hash            (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> signer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> hash_algo</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *hash_data</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *signature</code></em>);</pre>
+<p>
+This function will sign the given hashed data using a signature algorithm
+supported by the private key. Signature algorithms are always used
+together with a hash functions.  Different hash functions may be
+used for the RSA algorithm, but only SHA-XXX for the DSA keys.
+</p>
+<p>
+Use <a class="link" href="gnutls-abstract.html#gnutls-pubkey-get-preferred-hash-algorithm" title="gnutls_pubkey_get_preferred_hash_algorithm ()"><code class="function">gnutls_pubkey_get_preferred_hash_algorithm()</code></a> to determine
+the hash algorithm.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signer</code></em> :</span></p></td>
+<td>Holds the signer's key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hash_algo</code></em> :</span></p></td>
+<td>The hash algorithm used</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>zero for now</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hash_data</code></em> :</span></p></td>
+<td>holds the data to be signed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>signature</code></em> :</span></p></td>
+<td>will contain newly allocated signature</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-privkey-decrypt-data"></a><h3>gnutls_privkey_decrypt_data ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_privkey_decrypt_data         (<em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>,
+                                                         <em class="parameter"><code>const <GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *ciphertext</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="gnutls-datum-t"><span class="type">gnutls_datum_t</span></GTKDOCLINK> *plaintext</code></em>);</pre>
+<p>
+This function will decrypt the given data using the algorithm
+supported by the private key.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>Holds the key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>zero for now</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ciphertext</code></em> :</span></p></td>
+<td>holds the data to be decrypted</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plaintext</code></em> :</span></p></td>
+<td>will contain the decrypted data, allocated with <a class="link" href="gnutls-gnutls.html#gnutls-malloc" title="gnutls_malloc"><code class="function">gnutls_malloc()</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-x509-crt-privkey-sign"></a><h3>gnutls_x509_crt_privkey_sign ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_x509_crt_privkey_sign        (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> crt</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> issuer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> issuer_key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> dig</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);</pre>
+<p>
+This function will sign the certificate with the issuer's private key, and
+will copy the issuer's information into the certificate.
+</p>
+<p>
+This must be the last step in a certificate generation since all
+the previously set parameters are now signed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>crt</code></em> :</span></p></td>
+<td>a certificate of type <a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>issuer</code></em> :</span></p></td>
+<td>is the certificate of the certificate issuer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>issuer_key</code></em> :</span></p></td>
+<td>holds the issuer's private key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dig</code></em> :</span></p></td>
+<td>The message digest to use, <a class="link" href="gnutls-gnutls.html#GNUTLS-DIG-SHA1:CAPS"><code class="literal">GNUTLS_DIG_SHA1</code></a> is a safe choice</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>must be 0</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-x509-crl-privkey-sign"></a><h3>gnutls_x509_crl_privkey_sign ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_x509_crl_privkey_sign        (<em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crl-t" title="gnutls_x509_crl_t"><span class="type">gnutls_x509_crl_t</span></a> crl</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-x509-crt-t" title="gnutls_x509_crt_t"><span class="type">gnutls_x509_crt_t</span></a> issuer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> issuer_key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> dig</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);</pre>
+<p>
+This function will sign the CRL with the issuer's private key, and
+will copy the issuer's information into the CRL.
+</p>
+<p>
+This must be the last step in a certificate CRL since all
+the previously set parameters are now signed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>crl</code></em> :</span></p></td>
+<td>should contain a gnutls_x509_crl_t structure</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>issuer</code></em> :</span></p></td>
+<td>is the certificate of the certificate issuer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>issuer_key</code></em> :</span></p></td>
+<td>holds the issuer's private key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dig</code></em> :</span></p></td>
+<td>The message digest to use. GNUTLS_DIG_SHA1 is the safe choice unless you know what you're doing.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>must be 0</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>On success, <a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> (0) is returned, otherwise a
+negative error value.
+Since 2.12.0</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="gnutls-x509-crq-privkey-sign"></a><h3>gnutls_x509_crq_privkey_sign ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int"><span class="returnvalue">int</span></GTKDOCLINK>                 gnutls_x509_crq_privkey_sign        (<em class="parameter"><code><a class="link" href="gnutls-x509.html#gnutls-x509-crq-t" title="gnutls_x509_crq_t"><span class="type">gnutls_x509_crq_t</span></a> crq</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-abstract.html#gnutls-privkey-t" title="gnutls_privkey_t"><span class="type">gnutls_privkey_t</span></a> key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gnutls-gnutls.html#gnutls-digest-algorithm-t" title="enum gnutls_digest_algorithm_t"><span class="type">gnutls_digest_algorithm_t</span></a> dig</code></em>,
+                                                         <em class="parameter"><code>unsigned <GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> flags</code></em>);</pre>
+<p>
+This function will sign the certificate request with a private key.
+This must be the same key as the one used in
+<a class="link" href="gnutls-x509.html#gnutls-x509-crt-set-key" title="gnutls_x509_crt_set_key ()"><code class="function">gnutls_x509_crt_set_key()</code></a> since a certificate request is self
+signed.
+</p>
+<p>
+This must be the last step in a certificate request generation
+since all the previously set parameters are now signed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>crq</code></em> :</span></p></td>
+<td>should contain a <a class="link" href="gnutls-x509.html#gnutls-x509-crq-t" title="gnutls_x509_crq_t"><span class="type">gnutls_x509_crq_t</span></a> structure</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>holds a private key</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dig</code></em> :</span></p></td>
+<td>The message digest to use, i.e., <a class="link" href="gnutls-gnutls.html#GNUTLS-DIG-SHA1:CAPS"><code class="literal">GNUTLS_DIG_SHA1</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>must be 0</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a class="link" href="gnutls-gnutls.html#GNUTLS-E-SUCCESS:CAPS" title="GNUTLS_E_SUCCESS"><code class="literal">GNUTLS_E_SUCCESS</code></a> on success, otherwise a negative error code.
+<a class="link" href="gnutls-gnutls.html#GNUTLS-E-ASN1-VALUE-NOT-FOUND:CAPS" title="GNUTLS_E_ASN1_VALUE_NOT_FOUND"><code class="literal">GNUTLS_E_ASN1_VALUE_NOT_FOUND</code></a> is returned if you didn't set all
+information in the certificate request (e.g., the version using
+<a class="link" href="gnutls-x509.html#gnutls-x509-crq-set-version" title="gnutls_x509_crq_set_version ()"><code class="function">gnutls_x509_crq_set_version()</code></a>).</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.12.0</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

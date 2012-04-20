@@ -1,0 +1,11 @@
+asnprintf.lo: asnprintf.c ../config.h vasnprintf.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.5/include/stdarg.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.5/include/stddef.h
+
+../config.h:
+
+vasnprintf.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.5/include/stdarg.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.5/include/stddef.h:

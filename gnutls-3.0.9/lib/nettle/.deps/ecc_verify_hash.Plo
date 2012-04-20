@@ -1,0 +1,274 @@
+ecc_verify_hash.lo: ecc_verify_hash.c ecc.h \
+ /home/karthik/GNUTLS/Working/include/gmp.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.5/include/stddef.h \
+ /home/karthik/GNUTLS/Working/include/nettle/nettle-types.h \
+ /home/karthik/GNUTLS/Working/include/nettle/nettle-stdint.h \
+ /usr/include/stdint.h /usr/include/features.h \
+ /usr/include/bits/predefs.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-32.h /usr/include/bits/wchar.h \
+ /home/karthik/GNUTLS/Working/include/nettle/dsa.h \
+ /home/karthik/GNUTLS/Working/include/nettle/nettle-types.h \
+ /home/karthik/GNUTLS/Working/include/nettle/sha.h \
+ /home/karthik/GNUTLS/Working/include/nettle/nettle-meta.h \
+ /home/karthik/GNUTLS/Working/include/nettle/bignum.h ../gnutls_int.h \
+ ../../config.h ../../gl/string.h /usr/include/string.h \
+ /usr/include/xlocale.h /usr/include/bits/string.h \
+ /usr/include/bits/string2.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ ../../gl/stdlib.h /usr/include/stdlib.h ../../gl/sys/types.h \
+ /usr/include/sys/types.h ../../gl/time.h /usr/include/time.h \
+ ../../gl/sys/select.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/bits/sigset.h \
+ /usr/include/bits/time.h /usr/include/sys/sysmacros.h \
+ /usr/include/bits/pthreadtypes.h ../../gl/alloca.h ../../gl/stdio.h \
+ /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h \
+ ../../gl/wchar.h /usr/include/wchar.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.5/include/stdarg.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/ctype.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.5/include-fixed/limits.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.5/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h ../../gl/unistd.h /usr/include/unistd.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/confname.h \
+ ../../gl/getopt.h /usr/include/getopt.h ../../gl/sys/stat.h \
+ /usr/include/sys/stat.h /usr/include/bits/stat.h ../../gl/sys/socket.h \
+ /usr/include/sys/socket.h ../../gl/sys/uio.h /usr/include/sys/uio.h \
+ /usr/include/bits/uio.h /usr/include/bits/socket.h \
+ /usr/include/bits/sockaddr.h /usr/include/asm/socket.h \
+ /usr/include/asm-generic/socket.h /usr/include/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h ../../gl/u64.h \
+ /home/karthik/GNUTLS/Working/include/nettle/memxor.h \
+ ../includes/gnutls/gnutls.h ../includes/gnutls/compat.h \
+ ../includes/gnutls/abstract.h ../includes/gnutls/x509.h \
+ ../includes/gnutls/pkcs11.h ../includes/gnutls/openpgp.h ../system.h \
+ ../gnutls_mem.h ../gnutls_mpi.h ../crypto-backend.h \
+ ../includes/gnutls/crypto.h ../gnutls_str.h ../gnutls_datum.h \
+ ../gnutls_num.h ../../gl/minmax.h /usr/include/sys/param.h \
+ /usr/include/linux/param.h /usr/include/asm/param.h \
+ /usr/include/asm-generic/param.h ../gnutls_hash_int.h ../crypto.h \
+ ../gnutls_cipher_int.h ../gnutls_compress.h /usr/include/zlib.h \
+ /usr/include/zconf.h /usr/include/zlibdefs.h
+
+ecc.h:
+
+/home/karthik/GNUTLS/Working/include/gmp.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.5/include/stddef.h:
+
+/home/karthik/GNUTLS/Working/include/nettle/nettle-types.h:
+
+/home/karthik/GNUTLS/Working/include/nettle/nettle-stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/predefs.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-32.h:
+
+/usr/include/bits/wchar.h:
+
+/home/karthik/GNUTLS/Working/include/nettle/dsa.h:
+
+/home/karthik/GNUTLS/Working/include/nettle/nettle-types.h:
+
+/home/karthik/GNUTLS/Working/include/nettle/sha.h:
+
+/home/karthik/GNUTLS/Working/include/nettle/nettle-meta.h:
+
+/home/karthik/GNUTLS/Working/include/nettle/bignum.h:
+
+../gnutls_int.h:
+
+../../config.h:
+
+../../gl/string.h:
+
+/usr/include/string.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/bits/string.h:
+
+/usr/include/bits/string2.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+../../gl/stdlib.h:
+
+/usr/include/stdlib.h:
+
+../../gl/sys/types.h:
+
+/usr/include/sys/types.h:
+
+../../gl/time.h:
+
+/usr/include/time.h:
+
+../../gl/sys/select.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+../../gl/alloca.h:
+
+../../gl/stdio.h:
+
+/usr/include/stdio.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+../../gl/wchar.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.5/include/stdarg.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/bits/stdio.h:
+
+/usr/include/ctype.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.5/include-fixed/limits.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.5/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/bits/posix2_lim.h:
+
+../../gl/unistd.h:
+
+/usr/include/unistd.h:
+
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/confname.h:
+
+../../gl/getopt.h:
+
+/usr/include/getopt.h:
+
+../../gl/sys/stat.h:
+
+/usr/include/sys/stat.h:
+
+/usr/include/bits/stat.h:
+
+../../gl/sys/socket.h:
+
+/usr/include/sys/socket.h:
+
+../../gl/sys/uio.h:
+
+/usr/include/sys/uio.h:
+
+/usr/include/bits/uio.h:
+
+/usr/include/bits/socket.h:
+
+/usr/include/bits/sockaddr.h:
+
+/usr/include/asm/socket.h:
+
+/usr/include/asm-generic/socket.h:
+
+/usr/include/asm/sockios.h:
+
+/usr/include/asm-generic/sockios.h:
+
+../../gl/u64.h:
+
+/home/karthik/GNUTLS/Working/include/nettle/memxor.h:
+
+../includes/gnutls/gnutls.h:
+
+../includes/gnutls/compat.h:
+
+../includes/gnutls/abstract.h:
+
+../includes/gnutls/x509.h:
+
+../includes/gnutls/pkcs11.h:
+
+../includes/gnutls/openpgp.h:
+
+../system.h:
+
+../gnutls_mem.h:
+
+../gnutls_mpi.h:
+
+../crypto-backend.h:
+
+../includes/gnutls/crypto.h:
+
+../gnutls_str.h:
+
+../gnutls_datum.h:
+
+../gnutls_num.h:
+
+../../gl/minmax.h:
+
+/usr/include/sys/param.h:
+
+/usr/include/linux/param.h:
+
+/usr/include/asm/param.h:
+
+/usr/include/asm-generic/param.h:
+
+../gnutls_hash_int.h:
+
+../crypto.h:
+
+../gnutls_cipher_int.h:
+
+../gnutls_compress.h:
+
+/usr/include/zlib.h:
+
+/usr/include/zconf.h:
+
+/usr/include/zlibdefs.h:

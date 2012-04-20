@@ -1,0 +1,32 @@
+
+
+
+@float Table,gnutls_pkcs_encrypt_flags_t
+
+@itemize
+@item GNUTLS_@-PKCS_@-PLAIN
+Unencrypted private key.
+@item GNUTLS_@-PKCS8_@-PLAIN
+Same as @code{GNUTLS_PKCS_PLAIN}.
+@item GNUTLS_@-PKCS_@-USE_@-PKCS12_@-3DES
+PKCS-12 3DES.
+@item GNUTLS_@-PKCS8_@-USE_@-PKCS12_@-3DES
+Same as @code{GNUTLS_PKCS_USE_PKCS12_3DES}.
+@item GNUTLS_@-PKCS_@-USE_@-PKCS12_@-ARCFOUR
+PKCS-12 ARCFOUR.
+@item GNUTLS_@-PKCS8_@-USE_@-PKCS12_@-ARCFOUR
+Same as @code{GNUTLS_PKCS_USE_PKCS12_ARCFOUR}.
+@item GNUTLS_@-PKCS_@-USE_@-PKCS12_@-RC2_@-40
+PKCS-12 RC2-40.
+@item GNUTLS_@-PKCS8_@-USE_@-PKCS12_@-RC2_@-40
+Same as @code{GNUTLS_PKCS_USE_PKCS12_RC2_40}.
+@item GNUTLS_@-PKCS_@-USE_@-PBES2_@-3DES
+PBES2 3DES.
+@item GNUTLS_@-PKCS_@-USE_@-PBES2_@-AES_@-128
+PBES2 AES-128.
+@item GNUTLS_@-PKCS_@-USE_@-PBES2_@-AES_@-192
+PBES2 AES-192.
+@item GNUTLS_@-PKCS_@-USE_@-PBES2_@-AES_@-256
+PBES2 AES-256.
+@end itemize
+@end float
